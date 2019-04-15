@@ -5,3 +5,37 @@
 		}
 	}
 }
+.p-step1{
+	background-color: #25282d;
+	&>*{
+		color: #25282d;
+		background-color: #ffffff;
+	}
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	overflow: hidden;
+}
+.p-step1__step{
+	width: 70%;
+	min-width: 800px;
+}
+.p-step1-content{
+	width: 70%;
+	min-width: 800px;
+	height: 80vh;
+	@media only screen and (max-width: 800px){
+		height: 100vh;
+	}
+	overflow-y: scroll;
+}
+.p-step1__input-form{
+	width: 100%;
+	display: flex;
+	justify-content: flex-end;
+}
+.p-step1__button--next{
+
+}

@@ -39,6 +39,7 @@ import { ErrorPageComponent } from './content/error-page/error-page.component';
 import { PermissionEffects, permissionsReducer, RoleEffects, rolesReducer } from '../../../core/auth';
 
 
+
 @NgModule({
 	declarations: [
 		BaseComponent,

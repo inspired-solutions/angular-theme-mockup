@@ -4,4 +4,43 @@
 			display: none;
 		}
 	}
+	width: 100%;
+}
+.p-step3{
+	background-color: #25282d;
+	&>*{
+		color: #25282d;
+		background-color: #ffffff;
+	}
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	overflow: hidden;
+}
+.p-step3__step{
+	width: 70%;
+	min-width: 800px;
+}
+.p-step3-content{
+	width: 70%;
+	min-width: 800px;
+	height: 80vh;
+	@media only screen and (max-width: 800px){
+		height: 100vh;
+	}
+	overflow-y: scroll;
+}
+.p-step3__input-form{
+	width: 100%;
+	display: flex;
+	justify-content: flex-end;
+}
+.p-step3__button{
+	min-width: 200px;
+	&:last-child{
+		margin-left: 8px;
+	}
 }
