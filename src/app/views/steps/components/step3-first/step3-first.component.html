@@ -1,0 +1,53 @@
+<div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--ver kt-page">
+	<div class="p-step3-first">
+		<div class="card p-step3-first-content border-0">
+			<ngb-progressbar type="danger" [value]="100	"></ngb-progressbar>
+			<div class="card-header border-0 bg-transparent mx-3 mt-5">
+				<h1 class="display-4">
+					Super! Laten we Zollie afstemmen op jouw business.
+				</h1>
+			</div>
+			<div class="card-body mx-3">
+				<h5 class="card-title">
+					<strong>Wat is je bol.com verkopersnummer?</strong>
+				</h5>
+				<div class="p-step3-first__input-form form-group">
+					<input type="text" class="form-control" >
+				</div>
+				<h5 class="card-title">
+					<strong>Welk verkoopmodel pas je momenteel hoofdzakelijk toe?</strong>
+				</h5>
+				<kt-options [options]="salesOptions" [dense]="true"></kt-options>
+				<h5 class="card-title">
+					<strong>Welke leveringsmethode gebruik je hoofdzakelijk?</strong>
+				</h5>
+				<kt-options [options]="deliveryOptions" [dense]="true"></kt-options>
+				<h5 class="card-title">
+					<strong>Hoeveel prodcuten verkoop je momenteel via bol.com?</strong>
+				</h5>
+				<select class="p-step3-first__select-form form-control">
+					<option value="">Selecteer aantal producten</option>
+					<option value="2">2</option>
+					<option value="5">5</option>
+					<option value="10">10</option>
+				</select>
+				<br/>
+				<h5 class="card-title">
+					<strong>Wat is je geschatter maandelijkse omzet?</strong>
+				</h5>
+				<select class="p-step3-first__select-form form-control">
+					<option value="">Selecteer geschatte omzet</option>
+					<option value="2">1000html</option>
+					<option value="5">2000</option>
+					<option value="10">3000</option>
+				</select>
+				<div class="p-step3-first__button-group-form">
+					<button type="button" class="btn btn-outline-secondary btn-lg rounded-pill p-step3-first__button"
+						routerLink="/steps/step2">Vorige</button>
+					<button type="button" class="btn btn-danger btn-lg rounded-pill p-step3-first__button"
+						(click)="changeStep(Step.Second)">Volgende</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

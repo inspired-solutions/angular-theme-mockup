@@ -1,58 +1,69 @@
 // Angular
-import { BrowserModule, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
-import { APP_INITIALIZER, NgModule } from '@angular/core';
-import { TranslateModule } from '@ngx-translate/core';
-import { HttpClientModule } from '@angular/common/http';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { GestureConfig, MatProgressSpinnerModule } from '@angular/material';
-import { OverlayModule } from '@angular/cdk/overlay';
-// Angular in memory
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-// NgBootstrap
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-// Perfect Scroll bar
-import { PERFECT_SCROLLBAR_CONFIG, PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
-// SVG inline
-import { InlineSVGModule } from 'ng-inline-svg';
-// Env
-import { environment } from '../environments/environment';
-// Hammer JS
 import 'hammerjs';
-// NGX Permissions
-import { NgxPermissionsModule } from 'ngx-permissions';
-// NGRX
-import { StoreModule } from '@ngrx/store';
+
+import { OverlayModule } from '@angular/cdk/overlay';
+import { HttpClientModule } from '@angular/common/http';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
+import { GestureConfig, MatProgressSpinnerModule } from '@angular/material';
+import { BrowserModule, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-// State
-import { metaReducers, reducers } from './core/reducers';
-// Copmponents
-import { AppComponent } from './app.component';
-// Modules
-import { AppRoutingModule } from './app-routing.module';
-import { CoreModule } from './core/core.module';
-// Partials
-import { PartialsModule } from './views/partials/partials.module';
-// Metronic Services
-import { DataTableService, FakeApiService } from './core/_base/metronic';
-// Layout Services
-import { LayoutConfigService, LayoutRefService, MenuAsideService, MenuConfigService, MenuHorizontalService, PageConfigService, SplashScreenService, SubheaderService,
-	KtDialogService } from './core/_base/layout';
-// Auth
-import { AuthModule } from './views/pages/auth/auth.module';
-import { AuthService, PermissionEffects, permissionsReducer, RoleEffects, rolesReducer } from './core/auth';
-// CRUD
-import { HttpUtilsService, LayoutUtilsService, TypesUtilsService } from './core/_base/crud';
-// Config
-import { LayoutConfig } from './core/_config/default/layout.config';
-// Highlight JS
-import { HIGHLIGHT_OPTIONS, HighlightLanguage } from 'ngx-highlightjs';
-import * as typescript from 'highlight.js/lib/languages/typescript';
-import * as scss from 'highlight.js/lib/languages/scss';
-import * as xml from 'highlight.js/lib/languages/xml';
+import { TranslateModule } from '@ngx-translate/core';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import * as json from 'highlight.js/lib/languages/json';
+import * as scss from 'highlight.js/lib/languages/scss';
+import * as typescript from 'highlight.js/lib/languages/typescript';
+import * as xml from 'highlight.js/lib/languages/xml';
+import { InlineSVGModule } from 'ng-inline-svg';
+import { HIGHLIGHT_OPTIONS, HighlightLanguage } from 'ngx-highlightjs';
+import { PERFECT_SCROLLBAR_CONFIG, PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
+import { NgxPermissionsModule } from 'ngx-permissions';
 
+import { environment } from '../environments/environment';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { HttpUtilsService, LayoutUtilsService, TypesUtilsService } from './core/_base/crud';
+import {
+    KtDialogService,
+    LayoutConfigService,
+    LayoutRefService,
+    MenuAsideService,
+    MenuConfigService,
+    MenuHorizontalService,
+    PageConfigService,
+    SplashScreenService,
+    SubheaderService,
+} from './core/_base/layout';
+import { DataTableService, FakeApiService } from './core/_base/metronic';
+import { LayoutConfig } from './core/_config/default/layout.config';
+import { AuthService } from './core/auth';
+import { CoreModule } from './core/core.module';
+import { metaReducers, reducers } from './core/reducers';
+import { AuthModule } from './views/pages/auth/auth.module';
+import { PartialsModule } from './views/partials/partials.module';
+
+// Angular in memory
+// NgBootstrap
+// Perfect Scroll bar
+// SVG inline
+// Env
+// Hammer JS
+// NGX Permissions
+// NGRX
+// State
+// Copmponents
+// Modules
+// Partials
+// Metronic Services
+// Layout Services
+// Auth
+// CRUD
+// Config
+// Highlight JS
 
 // tslint:disable-next-line:class-name
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {

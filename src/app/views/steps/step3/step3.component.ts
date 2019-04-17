@@ -3,7 +3,9 @@ import { Component, OnInit } from '@angular/core';
 // Services
 import { LayoutConfigService } from '../../../core/_base/layout';
 import { IOption } from '../models/ioption';
+import { Step } from '../models/step3-enum';
 // Widgets model
+
 @Component({
 	selector: 'kt-step3',
 	templateUrl: './step3.component.html',
@@ -20,11 +22,15 @@ export class Step3Component implements OnInit {
 		{id:7,name:"Startend ondernemer"},
 		{id:8,name:"Student"},
 		{id:9,name:"Oriênterend"},
-
 	]
+	Step = Step;
+	step: Step= Step.First;
 	constructor(private layoutConfigService: LayoutConfigService) {
 	}
 
 	ngOnInit(): void {
+	}
+	handleStepChange(state: Step){
+		this.step = state;
 	}
 }

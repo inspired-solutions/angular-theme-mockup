@@ -9,19 +9,20 @@ import { IOption } from '../../models/ioption';
 
 export class OptionsComponent implements OnInit, AfterViewChecked {
 	@Input() options: IOption[];
+	@Input() dense: boolean = false;
 	currentOption: IOption;
 	constructor() { }
 
-	resize(){
-		document.querySelectorAll(".option").forEach(option =>
-			( option as any ).style.height=getComputedStyle(option).width
-		);
-	}
+	// resize(){
+		// document.querySelectorAll(".option").forEach(option =>
+		// 	( option as any ).style.height=getComputedStyle(option).width
+		// );
+	// }
 	ngAfterViewChecked(){
-		this.resize();
+		// this.resize();
 	}
 	ngOnInit(): void {
-		window.addEventListener("resize",this.resize);
+		// window.addEventListener("resize",this.resize);
 	}
 	onSelectOption(option: IOption){
 		this.currentOption = option;

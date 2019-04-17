@@ -1,4 +1,15 @@
-<div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--ver kt-page">
+<kt-step3-first
+	*ngIf="step===Step.First"
+	[step]="step"
+	(stepChange)="handleStepChange($event)"
+></kt-step3-first>
+<kt-step3-second
+	*ngIf="step===Step.Second"
+	[step]="step"
+	(stepChange)="handleStepChange($event)"
+></kt-step3-second>
+<div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--ver kt-page"
+	*ngIf="step===Step.Third">
 	<div class="p-step3">
 		<div class="p-step3__step text-right bg-transparent text-light">3/3</div>
 		<div class="card p-step3-content border-0">
@@ -18,7 +29,7 @@
 				<kt-options [options]="options"></kt-options>
 				<div class="p-step3__input-form">
 					<button type="button" class="btn btn-outline-secondary btn-lg rounded-pill p-step3__button"
-						routerLink="/steps/step2">Vorige</button>
+						(click)="handleStepChange(Step.Second)">Vorige</button>
 					<button type="button" class="btn btn-danger btn-lg rounded-pill p-step3__button"
 						routerLink="/steps/step3">Volgende</button>
 				</div>
