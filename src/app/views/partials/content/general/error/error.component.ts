@@ -4,7 +4,7 @@ import { Component, HostBinding, Input } from '@angular/core';
 @Component({
 	selector: 'kt-error',
 	templateUrl: './error.component.html',
-	styleUrls: ['./error.component.scss']
+	styleUrls: ['./error.component.scss'],
 })
 export class ErrorComponent {
 	// Public properties

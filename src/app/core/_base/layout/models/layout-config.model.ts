@@ -3,14 +3,14 @@ export interface LayoutConfigModel {
 	self: {
 		layout?: string;
 		body?: {
-			'background-image'?: string
+			'background-image'?: string;
 		};
 		logo: any | string;
 	};
 	portlet?: {
 		sticky: {
-			offset: number
-		}
+			offset: number;
+		};
 	};
 	loader: {
 		enabled: boolean;
@@ -31,8 +31,8 @@ export interface LayoutConfigModel {
 		};
 		base: {
 			label: string[];
-			shape: string[]
-		}
+			shape: string[];
+		};
 	};
 	width?: string;
 	header: {
@@ -41,8 +41,8 @@ export interface LayoutConfigModel {
 			layout?: string;
 			fixed: {
 				desktop: any;
-				mobile: boolean
-			}
+				mobile: boolean;
+			};
 		};
 		topbar: {
 			search: {
@@ -50,42 +50,42 @@ export interface LayoutConfigModel {
 				layout: 'offcanvas' | 'dropdown';
 				dropdown?: {
 					style: 'light' | 'dark';
-				}
+				};
 			};
 			notifications: {
 				display: boolean;
 				layout: 'offcanvas' | 'dropdown';
 				dropdown: {
 					style: 'light' | 'dark';
-				}
+				};
 			};
 			'quick-actions': {
 				display: boolean;
 				layout: 'offcanvas' | 'dropdown';
 				dropdown: {
 					style: 'light' | 'dark';
-				}
+				};
 			};
 			user: {
 				display: boolean;
 				layout: 'offcanvas' | 'dropdown';
 				dropdown: {
 					style: 'light' | 'dark';
-				}
+				};
 			};
 			languages: {
-				display: boolean
+				display: boolean;
 			};
 			cart?: {
-				display: boolean
+				display: boolean;
 			};
-			'my-cart'?: any
+			'my-cart'?: any;
 			'quick-panel': {
-				display: boolean
-			}
+				display: boolean;
+			};
 		};
 		search?: {
-			display: boolean
+			display: boolean;
 		};
 		menu?: {
 			self: {
@@ -98,21 +98,21 @@ export interface LayoutConfigModel {
 				toggle: string;
 				submenu: {
 					skin?: string;
-					arrow: boolean
-				}
+					arrow: boolean;
+				};
 			};
 			mobile: {
 				submenu: {
 					skin: string;
-					accordion: boolean
-				}
-			}
-		}
+					accordion: boolean;
+				};
+			};
+		};
 	};
 	brand?: {
 		self: {
-			skin: string
-		}
+			skin: string;
+		};
 	};
 	aside?: {
 		self: {
@@ -121,13 +121,13 @@ export interface LayoutConfigModel {
 			fixed?: boolean | any;
 			minimize?: {
 				toggle: boolean;
-				default: boolean
-			}
+				default: boolean;
+			};
 		};
 		footer?: {
 			self: {
-				display: boolean
-			}
+				display: boolean;
+			};
 		};
 		menu: {
 			dropdown: boolean;
@@ -136,16 +136,16 @@ export interface LayoutConfigModel {
 				accordion: boolean;
 				dropdown: {
 					arrow: boolean;
-					'hover-timeout': number
-				}
-			}
-		}
+					'hover-timeout': number;
+				};
+			};
+		};
 	};
 	'aside-secondary'?: {
 		self: {
 			display: boolean;
-			layout: string
-		}
+			layout: string;
+		};
 	};
 	subheader?: {
 		display: boolean;
@@ -153,14 +153,14 @@ export interface LayoutConfigModel {
 		layout?: 'subheader-v1' | 'subheader-v2' | 'subheader-v3' | 'subheader-v4' | 'subheader-v5' | 'subheader-v6';
 		style?: 'light' | 'solid' | 'transparent';
 		daterangepicker?: {
-			display: boolean
-		}
+			display: boolean;
+		};
 	};
 	content?: any;
 	footer?: {
 		self?: any;
 	};
 	'quick-panel'?: {
-		display?: boolean
+		display?: boolean;
 	};
 }

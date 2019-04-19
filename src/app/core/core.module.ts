@@ -5,7 +5,18 @@ import { CommonModule } from '@angular/common';
 import { ContentAnimateDirective, HeaderDirective, MenuDirective, StickyDirective } from './_base/layout';
 // Metronic Pipes
 // Metornic Services
-import { FirstLetterPipe, GetObjectPipe, JoinPipe, OffcanvasDirective, SafePipe, ScrollTopDirective, SparklineChartDirective, TabClickEventDirective, TimeElapsedPipe, ToggleDirective } from './_base/metronic';
+import {
+	FirstLetterPipe,
+	GetObjectPipe,
+	JoinPipe,
+	OffcanvasDirective,
+	SafePipe,
+	ScrollTopDirective,
+	SparklineChartDirective,
+	TabClickEventDirective,
+	TimeElapsedPipe,
+	ToggleDirective,
+} from './_base/metronic';
 
 @NgModule({
 	imports: [CommonModule],
@@ -45,7 +56,6 @@ import { FirstLetterPipe, GetObjectPipe, JoinPipe, OffcanvasDirective, SafePipe,
 		SafePipe,
 		FirstLetterPipe,
 	],
-	providers: []
+	providers: [],
 })
-export class CoreModule {
-}
+export class CoreModule {}

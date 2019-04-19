@@ -41,7 +41,7 @@ export class FakeApiService implements InMemoryDbService {
 			orders: ECommerceDataContext.orders,
 
 			// data-table
-			cars: CarsDb.cars
+			cars: CarsDb.cars,
 		};
 		return db;
 	}

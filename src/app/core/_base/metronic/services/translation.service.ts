@@ -10,7 +10,7 @@ export interface Locale {
 }
 
 @Injectable({
-	providedIn: 'root'
+	providedIn: 'root',
 })
 export class TranslationService {
 	// Private properties

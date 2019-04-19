@@ -18,14 +18,11 @@ import { DashboardComponent } from './dashboard.component';
 		RouterModule.forChild([
 			{
 				path: '',
-				component: DashboardComponent
+				component: DashboardComponent,
 			},
 		]),
 	],
 	providers: [],
-	declarations: [
-		DashboardComponent,
-	]
+	declarations: [DashboardComponent],
 })
-export class DashboardModule {
-}
+export class DashboardModule {}

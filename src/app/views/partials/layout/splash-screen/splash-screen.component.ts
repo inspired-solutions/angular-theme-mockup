@@ -8,7 +8,7 @@ import { LayoutConfigService, SplashScreenService } from '../../../../core/_base
 @Component({
 	selector: 'kt-splash-screen',
 	templateUrl: './splash-screen.component.html',
-	styleUrls: ['./splash-screen.component.scss']
+	styleUrls: ['./splash-screen.component.scss'],
 })
 export class SplashScreenComponent implements OnInit {
 	// Public proprties
@@ -28,8 +28,8 @@ export class SplashScreenComponent implements OnInit {
 	constructor(
 		private el: ElementRef,
 		private layoutConfigService: LayoutConfigService,
-		private splashScreenService: SplashScreenService) {
-	}
+		private splashScreenService: SplashScreenService,
+	) {}
 
 	/**
 	 * @ Lifecycle sequences => https://angular.io/guide/lifecycle-hooks

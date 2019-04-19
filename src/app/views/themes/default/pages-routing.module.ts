@@ -15,22 +15,21 @@ const routes: Routes = [
 		children: [
 			{
 				path: 'dashboard',
-				loadChildren: 'app/views/pages/dashboard/dashboard.module#DashboardModule'
+				loadChildren: 'app/views/pages/dashboard/dashboard.module#DashboardModule',
 			},
 			{
 				path: 'builder',
-				loadChildren: 'app/views/themes/default/content/builder/builder.module#BuilderModule'
+				loadChildren: 'app/views/themes/default/content/builder/builder.module#BuilderModule',
 			},
-			{path: 'error/:type', component: ErrorPageComponent},
-			{path: '', redirectTo: 'dashboard', pathMatch: 'full'},
-			{path: '**', redirectTo: 'dashboard', pathMatch: 'full'}
-		]
+			{ path: 'error/:type', component: ErrorPageComponent },
+			{ path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+			{ path: '**', redirectTo: 'dashboard', pathMatch: 'full' },
+		],
 	},
 ];
 
 @NgModule({
 	imports: [RouterModule.forChild(routes)],
-	exports: [RouterModule]
+	exports: [RouterModule],
 })
-export class PagesRoutingModule {
-}
+export class PagesRoutingModule {}

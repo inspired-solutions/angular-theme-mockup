@@ -13,8 +13,7 @@ export class SplashScreenService {
 	 *
 	 * @param animationBuilder: AnimationBuilder
 	 */
-	constructor(private animationBuilder: AnimationBuilder) {
-	}
+	constructor(private animationBuilder: AnimationBuilder) {}
 
 	/**
 	 * Init
@@ -33,10 +32,9 @@ export class SplashScreenService {
 			return;
 		}
 
-		const player = this.animationBuilder.build([
-			style({opacity: '1'}),
-			animate(800, style({opacity: '0'}))
-		]).create(this.el.nativeElement);
+		const player = this.animationBuilder
+			.build([style({ opacity: '1' }), animate(800, style({ opacity: '0' }))])
+			.create(this.el.nativeElement);
 
 		player.onDone(() => {
 			if (typeof this.el.nativeElement.remove === 'function') {

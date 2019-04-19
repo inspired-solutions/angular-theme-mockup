@@ -24,8 +24,7 @@ export class SearchDropdownComponent implements OnInit {
 	 * @ Lifecycle sequences => https://angular.io/guide/lifecycle-hooks
 	 */
 
-	constructor(private cdr: ChangeDetectorRef) {
-	}
+	constructor(private cdr: ChangeDetectorRef) {}
 
 	/**
 	 * On init
@@ -37,56 +36,68 @@ export class SearchDropdownComponent implements OnInit {
 			{
 				icon: '',
 				text: 'Documents',
-				type: 0
-			}, {
+				type: 0,
+			},
+			{
 				icon: '<i class="flaticon-interface-3 kt-font-warning">',
 				text: 'Annual finance report',
-				type: 1
-			}, {
+				type: 1,
+			},
+			{
 				icon: '<i class="flaticon-share kt-font-success"></i>',
 				text: 'Company meeting schedule',
-				type: 1
-			}, {
+				type: 1,
+			},
+			{
 				icon: '<i class="flaticon-paper-plane kt-font-info"></i>',
 				text: 'Project quotations',
-				type: 1
-			}, {
+				type: 1,
+			},
+			{
 				icon: '',
 				text: 'Customers',
-				type: 0
-			}, {
+				type: 0,
+			},
+			{
 				icon: '<img src="assets/media/users/user1.jpg" alt="">',
 				text: 'Amanda Anderson',
-				type: 1
-			}, {
+				type: 1,
+			},
+			{
 				icon: '<img src="assets/media/users/user2.jpg" alt="">',
 				text: 'Kennedy Lloyd',
-				type: 1
-			}, {
+				type: 1,
+			},
+			{
 				icon: '<img src="assets/media/users/user3.jpg" alt="">',
 				text: 'Megan Weldon',
-				type: 1
-			}, {
+				type: 1,
+			},
+			{
 				icon: '<img src="assets/media/users/user4.jpg" alt="">',
 				text: 'Marc-André ter Stegen',
-				type: 1
-			}, {
+				type: 1,
+			},
+			{
 				icon: '',
 				text: 'Files',
-				type: 0
-			}, {
+				type: 0,
+			},
+			{
 				icon: '<i class="flaticon-lifebuoy kt-font-warning"></i>',
 				text: 'Revenue report',
-				type: 1
-			}, {
+				type: 1,
+			},
+			{
 				icon: '<i class="flaticon-coins kt-font-primary"></i>',
 				text: 'Anual finance report',
-				type: 1
-			}, {
+				type: 1,
+			},
+			{
 				icon: '<i class="flaticon-calendar kt-font-danger"></i>',
 				text: 'Tax calculations',
-				type: 1
-			}
+				type: 1,
+			},
 		];
 	}
 

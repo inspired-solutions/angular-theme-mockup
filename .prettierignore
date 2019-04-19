@@ -1,0 +1,10 @@
+node_modules/**
+dist/
+build/
+**/*.css
+**/*.sass
+**/*.scss
+package.json
+package-lock.json
+.editorconfig
+README.md

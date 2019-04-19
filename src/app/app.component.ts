@@ -19,7 +19,7 @@ import { locale as frLang } from './core/_config/i18n/fr';
 	selector: 'body[kt-root]',
 	templateUrl: './app.component.html',
 	styleUrls: ['./app.component.scss'],
-	changeDetection: ChangeDetectionStrategy.OnPush
+	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent implements OnInit, OnDestroy {
 	// Public properties
@@ -35,11 +35,12 @@ export class AppComponent implements OnInit, OnDestroy {
 	 * @param layoutConfigService: LayoutCongifService
 	 * @param splashScreenService: SplashScreenService
 	 */
-	constructor(private translationService: TranslationService,
-	            private router: Router,
-	            private layoutConfigService: LayoutConfigService,
-	            private splashScreenService: SplashScreenService) {
-
+	constructor(
+		private translationService: TranslationService,
+		private router: Router,
+		private layoutConfigService: LayoutConfigService,
+		private splashScreenService: SplashScreenService,
+	) {
 		// register translations
 		this.translationService.loadTranslations(enLang, chLang, esLang, jpLang, deLang, frLang);
 	}

@@ -15,7 +15,7 @@ export interface Widget5Data {
 @Component({
 	selector: 'kt-widget5',
 	templateUrl: './widget5.component.html',
-	styleUrls: ['./widget5.component.scss']
+	styleUrls: ['./widget5.component.scss'],
 })
 export class Widget5Component implements OnInit {
 	// Public properties
@@ -35,46 +35,52 @@ export class Widget5Component implements OnInit {
 					pic: './assets/media/products/product6.jpg',
 					title: 'Great Logo Designn',
 					desc: 'Metronic admin themes.',
-					info: '<span>Author:</span><span class="kt-font-info">Keenthemes</span>' +
+					info:
+						'<span>Author:</span><span class="kt-font-info">Keenthemes</span>' +
 						'<span>Released:</span><span class="kt-font-info">23.08.17</span>',
-					largeInfo: '<div class="kt-widget5__stats">\n' +
+					largeInfo:
+						'<div class="kt-widget5__stats">\n' +
 						' <span class="kt-widget5__number">19,200</span>\n' +
 						' <span class="kt-widget5__sales">sales</span>\n' +
 						' </div>\n' +
 						' <div class="kt-widget5__stats">\n' +
 						' <span class="kt-widget5__number">1046</span>\n' +
 						' <span class="kt-widget5__votes">votes</span>\n' +
-						' </div>'
+						' </div>',
 				},
 				{
 					pic: './assets/media/products/product10.jpg',
 					title: 'Branding Mockup',
 					desc: 'Metronic bootstrap themes.',
-					info: '<span>Author:</span><span class="kt-font-info">Fly themes</span>' +
+					info:
+						'<span>Author:</span><span class="kt-font-info">Fly themes</span>' +
 						'<span>Released:</span><span class="kt-font-info">23.08.17</span>',
-					largeInfo: '<div class="kt-widget5__stats">\n' +
+					largeInfo:
+						'<div class="kt-widget5__stats">\n' +
 						' <span class="kt-widget5__number">24,583</span>\n' +
 						' <span class="kt-widget5__sales">sales</span>\n' +
 						' </div>\n' +
 						' <div class="kt-widget5__stats">\n' +
 						' <span class="kt-widget5__number">3809</span>\n' +
 						' <span class="kt-widget5__votes">votes</span>\n' +
-						' </div>'
+						' </div>',
 				},
 				{
 					pic: './assets/media/products/product11.jpg',
 					title: 'Awesome Mobile App',
 					desc: 'Metronic admin themes. Lorem Ipsum Amet.',
-					info: '<span>Author:</span><span class="kt-font-info">Fly themes</span>' +
+					info:
+						'<span>Author:</span><span class="kt-font-info">Fly themes</span>' +
 						'<span>Released:</span><span class="kt-font-info">23.08.17</span>',
-					largeInfo: '<div class="kt-widget5__stats">\n' +
+					largeInfo:
+						'<div class="kt-widget5__stats">\n' +
 						' <span class="kt-widget5__number">210,054</span>\n' +
 						' <span class="kt-widget5__sales">sales</span>\n' +
 						' </div>\n' +
 						' <div class="kt-widget5__stats">\n' +
 						' <span class="kt-widget5__number">1103</span>\n' +
 						' <span class="kt-widget5__votes">votes</span>\n' +
-						' </div>'
+						' </div>',
 				},
 			]);
 		}

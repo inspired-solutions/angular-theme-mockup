@@ -11,6 +11,6 @@ export class ScrollTopComponent {
 	// Public properties
 	scrollTopOptions: ScrollTopOptions = {
 		offset: 300,
-		speed: 600
+		speed: 600,
 	};
 }

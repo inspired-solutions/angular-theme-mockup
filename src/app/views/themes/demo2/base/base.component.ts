@@ -19,7 +19,7 @@ import { AppState } from '../../../../core/reducers';
 	selector: 'kt-base',
 	templateUrl: './base.component.html',
 	styleUrls: ['./base.component.scss'],
-	encapsulation: ViewEncapsulation.None
+	encapsulation: ViewEncapsulation.None,
 })
 export class BaseComponent implements OnInit, OnDestroy {
 	// Public constructor
@@ -31,7 +31,6 @@ export class BaseComponent implements OnInit, OnDestroy {
 	// Private properties
 	private unsubscribe: Subscription[] = []; // Read more: => https://brianflove.com/2016/12/11/anguar-2-unsubscribe-observables/
 	private currentUserPermissions$: Observable<Permission[]>;
-
 
 	/**
 	 * Component constructor
@@ -47,9 +46,9 @@ export class BaseComponent implements OnInit, OnDestroy {
 		private pageConfigService: PageConfigService,
 		private htmlClassService: HtmlClassService,
 		private store: Store<AppState>,
-		private permissionsService: NgxPermissionsService) {
+		private permissionsService: NgxPermissionsService,
+	) {
 		this.loadRolesWithPermissions();
-
 
 		// register configs by demos
 		this.layoutConfigService.loadConfigs(new LayoutConfig().configs);

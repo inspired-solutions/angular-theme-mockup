@@ -13,8 +13,7 @@ export class MaterialPreviewComponent implements OnInit {
 	/**
 	 * Component constructor
 	 */
-	constructor() {
-	}
+	constructor() {}
 
 	/**
 	 * @ Lifecycle sequences => https://angular.io/guide/lifecycle-hooks
@@ -23,8 +22,7 @@ export class MaterialPreviewComponent implements OnInit {
 	/**
 	 * On init
 	 */
-	ngOnInit() {
-	}
+	ngOnInit() {}
 
 	/**
 	 * Toggle visibility

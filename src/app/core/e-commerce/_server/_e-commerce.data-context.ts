@@ -18,6 +18,5 @@ export class ECommerceDataContext {
 	// one => many relations
 	public static carSpecs = CarSpecificationsTable.carSpecifications;
 
-
 	public static orders = OrdersTable.orders;
 }

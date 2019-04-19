@@ -28,15 +28,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpUtilsService, LayoutUtilsService, TypesUtilsService } from './core/_base/crud';
 import {
-    KtDialogService,
-    LayoutConfigService,
-    LayoutRefService,
-    MenuAsideService,
-    MenuConfigService,
-    MenuHorizontalService,
-    PageConfigService,
-    SplashScreenService,
-    SubheaderService,
+	KtDialogService,
+	LayoutConfigService,
+	LayoutRefService,
+	MenuAsideService,
+	MenuConfigService,
+	MenuHorizontalService,
+	PageConfigService,
+	SplashScreenService,
+	SubheaderService,
 } from './core/_base/layout';
 import { DataTableService, FakeApiService } from './core/_base/metronic';
 import { LayoutConfig } from './core/_config/default/layout.config';
@@ -84,10 +84,10 @@ export function initializeLayoutConfig(appConfig: LayoutConfigService) {
 
 export function hljsLanguages(): HighlightLanguage[] {
 	return [
-		{name: 'typescript', func: typescript},
-		{name: 'scss', func: scss},
-		{name: 'xml', func: xml},
-		{name: 'json', func: json}
+		{ name: 'typescript', func: typescript },
+		{ name: 'scss', func: scss },
+		{ name: 'xml', func: xml },
+		{ name: 'json', func: json },
 	];
 }
 
@@ -98,23 +98,25 @@ export function hljsLanguages(): HighlightLanguage[] {
 		BrowserModule,
 		AppRoutingModule,
 		HttpClientModule,
-		environment.isMockEnabled ? HttpClientInMemoryWebApiModule.forRoot(FakeApiService, {
-			passThruUnknownUrl: true,
-			dataEncapsulation: false
-		}) : [],
+		environment.isMockEnabled
+			? HttpClientInMemoryWebApiModule.forRoot(FakeApiService, {
+					passThruUnknownUrl: true,
+					dataEncapsulation: false,
+			  })
+			: [],
 		NgxPermissionsModule.forRoot(),
 		PartialsModule,
 		CoreModule,
 		OverlayModule,
-		StoreModule.forRoot(reducers, {metaReducers}),
+		StoreModule.forRoot(reducers, { metaReducers }),
 		EffectsModule.forRoot([]),
-		StoreRouterConnectingModule.forRoot({stateKey: 'router'}),
+		StoreRouterConnectingModule.forRoot({ stateKey: 'router' }),
 		StoreDevtoolsModule.instrument(),
 		AuthModule.forRoot(),
 		NgbModule,
 		TranslateModule.forRoot(),
 		MatProgressSpinnerModule,
-		InlineSVGModule.forRoot()
+		InlineSVGModule.forRoot(),
 	],
 	exports: [],
 	providers: [
@@ -128,21 +130,22 @@ export function hljsLanguages(): HighlightLanguage[] {
 		SplashScreenService,
 		{
 			provide: PERFECT_SCROLLBAR_CONFIG,
-			useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
+			useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG,
 		},
 		{
 			provide: HAMMER_GESTURE_CONFIG,
-			useClass: GestureConfig
+			useClass: GestureConfig,
 		},
 		{
 			// layout config initializer
 			provide: APP_INITIALIZER,
 			useFactory: initializeLayoutConfig,
-			deps: [LayoutConfigService], multi: true
+			deps: [LayoutConfigService],
+			multi: true,
 		},
 		{
 			provide: HIGHLIGHT_OPTIONS,
-			useValue: {languages: hljsLanguages}
+			useValue: { languages: hljsLanguages },
 		},
 		// template services
 		SubheaderService,
@@ -152,7 +155,6 @@ export function hljsLanguages(): HighlightLanguage[] {
 		TypesUtilsService,
 		LayoutUtilsService,
 	],
-	bootstrap: [AppComponent]
+	bootstrap: [AppComponent],
 })
-export class AppModule {
-}
+export class AppModule {}

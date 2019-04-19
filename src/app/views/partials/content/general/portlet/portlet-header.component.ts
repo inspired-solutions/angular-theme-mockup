@@ -1,6 +1,16 @@
 import { KtDialogService } from './../../../../../core/_base/layout';
 // Angular
-import { AfterViewInit, Component, ElementRef, HostBinding, Input, OnDestroy, OnInit, ViewChild, ChangeDetectorRef } from '@angular/core';
+import {
+	AfterViewInit,
+	Component,
+	ElementRef,
+	HostBinding,
+	Input,
+	OnDestroy,
+	OnInit,
+	ViewChild,
+	ChangeDetectorRef,
+} from '@angular/core';
 // RXJS
 import { Observable, Subscription } from 'rxjs';
 import { distinctUntilChanged } from 'rxjs/operators';
@@ -19,7 +29,8 @@ import { distinctUntilChanged } from 'rxjs/operators';
 		</div>
 		<div class="kt-portlet__head-toolbar" #refTools [hidden]="hideTools">
 			<ng-content select="[ktPortletTools]"></ng-content>
-		</div>`
+		</div>
+	`,
 })
 export class PortletHeaderComponent implements OnInit, AfterViewInit, OnDestroy {
 	// Public properties
@@ -47,8 +58,7 @@ export class PortletHeaderComponent implements OnInit, AfterViewInit, OnDestroy 
 
 	private subscriptions: Subscription[] = [];
 
-	constructor(private el: ElementRef, private ktDialogService: KtDialogService) {
-	}
+	constructor(private el: ElementRef, private ktDialogService: KtDialogService) {}
 
 	/**
 	 * @ Lifecycle sequences => https://angular.io/guide/lifecycle-hooks
@@ -66,7 +76,6 @@ export class PortletHeaderComponent implements OnInit, AfterViewInit, OnDestroy 
 
 		// hide tools' parent node if no tools template is provided
 		this.hideTools = this.refTools.nativeElement.children.length === 0;
-
 	}
 
 	ngAfterViewInit(): void {

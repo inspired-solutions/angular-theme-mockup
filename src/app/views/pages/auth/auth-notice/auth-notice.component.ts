@@ -22,25 +22,24 @@ export class AuthNoticeComponent implements OnInit, OnDestroy {
 	 * @param authNoticeService
 	 * @param cdr
 	 */
-	constructor(public authNoticeService: AuthNoticeService, private cdr: ChangeDetectorRef) {
-	}
+	constructor(public authNoticeService: AuthNoticeService, private cdr: ChangeDetectorRef) {}
 
 	/*
 	 * @ Lifecycle sequences => https://angular.io/guide/lifecycle-hooks
-    */
+	 */
 
 	/**
 	 * On init
 	 */
 	ngOnInit() {
-		this.subscriptions.push(this.authNoticeService.onNoticeChanged$.subscribe(
-			(notice: AuthNotice) => {
-				notice = Object.assign({}, {message: '', type: ''}, notice);
+		this.subscriptions.push(
+			this.authNoticeService.onNoticeChanged$.subscribe((notice: AuthNotice) => {
+				notice = Object.assign({}, { message: '', type: '' }, notice);
 				this.message = notice.message;
 				this.type = notice.type;
 				this.cdr.detectChanges();
-			}
-		));
+			}),
+		);
 	}
 
 	/**

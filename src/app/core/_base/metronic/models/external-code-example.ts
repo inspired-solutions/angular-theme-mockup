@@ -1,4 +1,4 @@
-export  class ExternalCodeExample {
+export class ExternalCodeExample {
 	beforeCodeTitle: string;
 	beforeCodeDescription: string;
 	htmlCode: string;

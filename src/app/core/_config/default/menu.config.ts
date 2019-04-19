@@ -2,33 +2,33 @@ export class MenuConfig {
 	public defaults: any = {
 		header: {
 			self: {},
-			'items': [
+			items: [
 				{
-					'title': 'Pages',
-					'root': true,
+					title: 'Pages',
+					root: true,
 					'icon-': 'flaticon-add',
-					'toggle': 'click',
+					toggle: 'click',
 					'custom-class': 'kt-menu__item--active',
-					'alignment': 'left',
-					submenu: []
+					alignment: 'left',
+					submenu: [],
 				},
 				{
-					'title': 'Features',
-					'root': true,
+					title: 'Features',
+					root: true,
 					'icon-': 'flaticon-line-graph',
-					'toggle': 'click',
-					'alignment': 'left',
-					submenu: []
+					toggle: 'click',
+					alignment: 'left',
+					submenu: [],
 				},
 				{
-					'title': 'Apps',
-					'root': true,
+					title: 'Apps',
+					root: true,
 					'icon-': 'flaticon-paper-plane',
-					'toggle': 'click',
-					'alignment': 'left',
-					submenu: []
-				}
-			]
+					toggle: 'click',
+					alignment: 'left',
+					submenu: [],
+				},
+			],
 		},
 		aside: {
 			self: {},
@@ -45,16 +45,16 @@ export class MenuConfig {
 					title: 'Layout Builder',
 					root: true,
 					icon: 'flaticon2-expand',
-					page: 'builder'
+					page: 'builder',
 				},
-				{section: 'Custom'},
+				{ section: 'Custom' },
 				{
 					title: 'Custom Link',
 					root: true,
 					icon: 'flaticon2-link',
 					bullet: 'dot',
 				},
-			]
+			],
 		},
 	};
 

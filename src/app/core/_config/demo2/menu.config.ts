@@ -15,23 +15,23 @@ export class MenuConfig {
 					root: true,
 					alignment: 'left',
 					toggle: 'click',
-					submenu: []
+					submenu: [],
 				},
 				{
 					title: 'Applications',
 					root: true,
 					alignment: 'left',
 					toggle: 'click',
-					submenu: []
+					submenu: [],
 				},
 				{
 					title: 'Custom',
 					root: true,
 					alignment: 'left',
 					toggle: 'click',
-					submenu: []
+					submenu: [],
 				},
-			]
+			],
 		},
 		aside: {
 			self: {},
@@ -48,16 +48,16 @@ export class MenuConfig {
 					title: 'Layout Builder',
 					root: true,
 					icon: 'flaticon2-expand',
-					page: 'builder'
+					page: 'builder',
 				},
-				{section: 'Custom'},
+				{ section: 'Custom' },
 				{
 					title: 'Custom Link',
 					root: true,
 					icon: 'flaticon2-link',
 					bullet: 'dot',
 				},
-			]
+			],
 		},
 	};
 

@@ -9,12 +9,11 @@ import { LayoutConfigService } from '../../../../../core/_base/layout';
 @Component({
 	selector: 'kt-widget12',
 	templateUrl: './widget12.component.html',
-	styleUrls: ['./widget12.component.scss']
+	styleUrls: ['./widget12.component.scss'],
 })
 export class Widget12Component implements OnInit {
-
 	// Public properties
-	@Input() data: { labels: string[], datasets: any[] };
+	@Input() data: { labels: string[]; datasets: any[] };
 	@Input() type: string = 'line';
 	@ViewChild('chart') chart: ElementRef;
 
@@ -22,8 +21,7 @@ export class Widget12Component implements OnInit {
 	 * Component constructor
 	 * @param layoutConfigService
 	 */
-	constructor(private layoutConfigService: LayoutConfigService) {
-	}
+	constructor(private layoutConfigService: LayoutConfigService) {}
 
 	/**
 	 * @ Lifecycle sequences => https://angular.io/guide/lifecycle-hooks
@@ -41,34 +39,60 @@ export class Widget12Component implements OnInit {
 					{
 						fill: true,
 						// borderWidth: 0,
-						backgroundColor: color(this.layoutConfigService.getConfig('colors.state.brand')).alpha(0.6).rgbString(),
-						borderColor: color(this.layoutConfigService.getConfig('colors.state.brand')).alpha(0).rgbString(),
+						backgroundColor: color(this.layoutConfigService.getConfig('colors.state.brand'))
+							.alpha(0.6)
+							.rgbString(),
+						borderColor: color(this.layoutConfigService.getConfig('colors.state.brand'))
+							.alpha(0)
+							.rgbString(),
 
 						pointHoverRadius: 4,
 						pointHoverBorderWidth: 12,
-						pointBackgroundColor: Chart.helpers.color('#000000').alpha(0).rgbString(),
-						pointBorderColor: Chart.helpers.color('#000000').alpha(0).rgbString(),
+						pointBackgroundColor: Chart.helpers
+							.color('#000000')
+							.alpha(0)
+							.rgbString(),
+						pointBorderColor: Chart.helpers
+							.color('#000000')
+							.alpha(0)
+							.rgbString(),
 						pointHoverBackgroundColor: this.layoutConfigService.getConfig('colors.state.brand'),
-						pointHoverBorderColor: Chart.helpers.color('#000000').alpha(0.1).rgbString(),
+						pointHoverBorderColor: Chart.helpers
+							.color('#000000')
+							.alpha(0.1)
+							.rgbString(),
 
-						data: [20, 40, 50, 25, 35, 60, 30]
+						data: [20, 40, 50, 25, 35, 60, 30],
 					},
 					{
 						fill: true,
 						// borderWidth: 0,
-						backgroundColor: color(this.layoutConfigService.getConfig('colors.state.brand')).alpha(0.2).rgbString(),
-						borderColor: color(this.layoutConfigService.getConfig('colors.state.brand')).alpha(0).rgbString(),
+						backgroundColor: color(this.layoutConfigService.getConfig('colors.state.brand'))
+							.alpha(0.2)
+							.rgbString(),
+						borderColor: color(this.layoutConfigService.getConfig('colors.state.brand'))
+							.alpha(0)
+							.rgbString(),
 
 						pointHoverRadius: 4,
 						pointHoverBorderWidth: 12,
-						pointBackgroundColor: Chart.helpers.color('#000000').alpha(0).rgbString(),
-						pointBorderColor: Chart.helpers.color('#000000').alpha(0).rgbString(),
+						pointBackgroundColor: Chart.helpers
+							.color('#000000')
+							.alpha(0)
+							.rgbString(),
+						pointBorderColor: Chart.helpers
+							.color('#000000')
+							.alpha(0)
+							.rgbString(),
 						pointHoverBackgroundColor: this.layoutConfigService.getConfig('colors.state.brand'),
-						pointHoverBorderColor: Chart.helpers.color('#000000').alpha(0.1).rgbString(),
+						pointHoverBorderColor: Chart.helpers
+							.color('#000000')
+							.alpha(0.1)
+							.rgbString(),
 
-						data: [25, 45, 55, 30, 40, 65, 35]
-					}
-				]
+						data: [25, 45, 55, 30, 40, 65, 35],
+					},
+				],
 			};
 		}
 		this.initChart();
@@ -86,57 +110,61 @@ export class Widget12Component implements OnInit {
 				maintainAspectRatio: false,
 				legend: false,
 				scales: {
-					xAxes: [{
-						categoryPercentage: 0.35,
-						barPercentage: 0.70,
-						display: true,
-						scaleLabel: {
-							display: false,
-							labelString: 'Month'
-						},
-						gridLines: false,
-						ticks: {
+					xAxes: [
+						{
+							categoryPercentage: 0.35,
+							barPercentage: 0.7,
 							display: true,
-							beginAtZero: true,
-							fontColor: this.layoutConfigService.getConfig('colors.base.shape.3'),
-							fontSize: 13,
-							padding: 10
-						}
-					}],
-					yAxes: [{
-						categoryPercentage: 0.35,
-						barPercentage: 0.70,
-						display: true,
-						scaleLabel: {
-							display: false,
-							labelString: 'Value'
+							scaleLabel: {
+								display: false,
+								labelString: 'Month',
+							},
+							gridLines: false,
+							ticks: {
+								display: true,
+								beginAtZero: true,
+								fontColor: this.layoutConfigService.getConfig('colors.base.shape.3'),
+								fontSize: 13,
+								padding: 10,
+							},
 						},
-						gridLines: {
-							color: this.layoutConfigService.getConfig('colors.base.shape.2'),
-							drawBorder: false,
-							offsetGridLines: false,
-							drawTicks: false,
-							borderDash: [3, 4],
-							zeroLineWidth: 1,
-							zeroLineColor: this.layoutConfigService.getConfig('colors.base.shape.2'),
-							zeroLineBorderDash: [3, 4]
-						},
-						ticks: {
-							max: 70,
-							stepSize: 10,
+					],
+					yAxes: [
+						{
+							categoryPercentage: 0.35,
+							barPercentage: 0.7,
 							display: true,
-							beginAtZero: true,
-							fontColor: this.layoutConfigService.getConfig('colors.base.shape.3'),
-							fontSize: 13,
-							padding: 10
-						}
-					}]
+							scaleLabel: {
+								display: false,
+								labelString: 'Value',
+							},
+							gridLines: {
+								color: this.layoutConfigService.getConfig('colors.base.shape.2'),
+								drawBorder: false,
+								offsetGridLines: false,
+								drawTicks: false,
+								borderDash: [3, 4],
+								zeroLineWidth: 1,
+								zeroLineColor: this.layoutConfigService.getConfig('colors.base.shape.2'),
+								zeroLineBorderDash: [3, 4],
+							},
+							ticks: {
+								max: 70,
+								stepSize: 10,
+								display: true,
+								beginAtZero: true,
+								fontColor: this.layoutConfigService.getConfig('colors.base.shape.3'),
+								fontSize: 13,
+								padding: 10,
+							},
+						},
+					],
 				},
 				title: {
-					display: false
+					display: false,
 				},
 				hover: {
-					mode: 'index'
+					mode: 'index',
 				},
 				tooltips: {
 					enabled: true,
@@ -151,17 +179,17 @@ export class Widget12Component implements OnInit {
 					titleFontColor: '#ffffff',
 					cornerRadius: 4,
 					footerSpacing: 0,
-					titleSpacing: 0
+					titleSpacing: 0,
 				},
 				layout: {
 					padding: {
 						left: 0,
 						right: 0,
 						top: 5,
-						bottom: 5
-					}
-				}
-			}
+						bottom: 5,
+					},
+				},
+			},
 		});
 	}
 }

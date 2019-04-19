@@ -17,7 +17,7 @@ import { ConfirmPasswordValidator } from './confirm-password.validator';
 @Component({
 	selector: 'kt-register',
 	templateUrl: './register.component.html',
-	encapsulation: ViewEncapsulation.None
+	encapsulation: ViewEncapsulation.None,
 })
 export class RegisterComponent implements OnInit, OnDestroy {
 	registerForm: FormGroup;
@@ -44,14 +44,14 @@ export class RegisterComponent implements OnInit, OnDestroy {
 		private auth: AuthService,
 		private store: Store<AppState>,
 		private fb: FormBuilder,
-		private cdr: ChangeDetectorRef
+		private cdr: ChangeDetectorRef,
 	) {
 		this.unsubscribe = new Subject();
 	}
 
 	/*
 	 * @ Lifecycle sequences => https://angular.io/guide/lifecycle-hooks
-    */
+	 */
 
 	/**
 	 * On init
@@ -61,8 +61,8 @@ export class RegisterComponent implements OnInit, OnDestroy {
 	}
 
 	/*
-    * On destroy
-    */
+	 * On destroy
+	 */
 	ngOnDestroy(): void {
 		this.unsubscribe.next();
 		this.unsubscribe.complete();
@@ -74,43 +74,31 @@ export class RegisterComponent implements OnInit, OnDestroy {
 	 * Default params, validators
 	 */
 	initRegisterForm() {
-		this.registerForm = this.fb.group({
-			fullname: ['', Validators.compose([
-				Validators.required,
-				Validators.minLength(3),
-				Validators.maxLength(100)
-			])
-			],
-			email: ['', Validators.compose([
-				Validators.required,
-				Validators.email,
-				Validators.minLength(3),
-				// https://stackoverflow.com/questions/386294/what-is-the-maximum-length-of-a-valid-email-address
-				Validators.maxLength(320)
-			]),
-			],
-			username: ['', Validators.compose([
-				Validators.required,
-				Validators.minLength(3),
-				Validators.maxLength(100)
-			]),
-			],
-			password: ['', Validators.compose([
-				Validators.required,
-				Validators.minLength(3),
-				Validators.maxLength(100)
-			])
-			],
-			confirmPassword: ['', Validators.compose([
-				Validators.required,
-				Validators.minLength(3),
-				Validators.maxLength(100)
-			])
-			],
-			agree: [false, Validators.compose([Validators.required])]
-		}, {
-			validator: ConfirmPasswordValidator.MatchPassword
-		});
+		this.registerForm = this.fb.group(
+			{
+				fullname: ['', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(100)])],
+				email: [
+					'',
+					Validators.compose([
+						Validators.required,
+						Validators.email,
+						Validators.minLength(3),
+						// https://stackoverflow.com/questions/386294/what-is-the-maximum-length-of-a-valid-email-address
+						Validators.maxLength(320),
+					]),
+				],
+				username: ['', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(100)])],
+				password: ['', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(100)])],
+				confirmPassword: [
+					'',
+					Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(100)]),
+				],
+				agree: [false, Validators.compose([Validators.required])],
+			},
+			{
+				validator: ConfirmPasswordValidator.MatchPassword,
+			},
+		);
 	}
 
 	/**
@@ -121,9 +109,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
 
 		// check form
 		if (this.registerForm.invalid) {
-			Object.keys(controls).forEach(controlName =>
-				controls[controlName].markAsTouched()
-			);
+			Object.keys(controls).forEach(controlName => controls[controlName].markAsTouched());
 			return;
 		}
 
@@ -143,23 +129,26 @@ export class RegisterComponent implements OnInit, OnDestroy {
 		_user.fullname = controls['fullname'].value;
 		_user.password = controls['password'].value;
 		_user.roles = [];
-		this.auth.register(_user).pipe(
-			tap(user => {
-				if (user) {
-					this.store.dispatch(new Register({authToken: user.accessToken}));
-					// pass notice message to the login page
-					this.authNoticeService.setNotice(this.translate.instant('AUTH.REGISTER.SUCCESS'), 'success');
-					this.router.navigateByUrl('/auth/login');
-				} else {
-					this.authNoticeService.setNotice(this.translate.instant('AUTH.VALIDATION.INVALID_LOGIN'), 'danger');
-				}
-			}),
-			takeUntil(this.unsubscribe),
-			finalize(() => {
-				this.loading = false;
-				this.cdr.detectChanges();
-			})
-		).subscribe();
+		this.auth
+			.register(_user)
+			.pipe(
+				tap(user => {
+					if (user) {
+						this.store.dispatch(new Register({ authToken: user.accessToken }));
+						// pass notice message to the login page
+						this.authNoticeService.setNotice(this.translate.instant('AUTH.REGISTER.SUCCESS'), 'success');
+						this.router.navigateByUrl('/auth/login');
+					} else {
+						this.authNoticeService.setNotice(this.translate.instant('AUTH.VALIDATION.INVALID_LOGIN'), 'danger');
+					}
+				}),
+				takeUntil(this.unsubscribe),
+				finalize(() => {
+					this.loading = false;
+					this.cdr.detectChanges();
+				}),
+			)
+			.subscribe();
 	}
 
 	/**

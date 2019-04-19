@@ -7,7 +7,7 @@ import { LayoutConfigModel, LayoutConfigService } from '../../../../../core/_bas
 @Component({
 	selector: 'kt-builder',
 	templateUrl: './builder.component.html',
-	styleUrls: ['./builder.component.scss']
+	styleUrls: ['./builder.component.scss'],
 })
 export class BuilderComponent implements OnInit {
 	// Public properties
@@ -19,8 +19,7 @@ export class BuilderComponent implements OnInit {
 	 *
 	 * @param layoutConfigService: LayoutConfigService
 	 */
-	constructor(private layoutConfigService: LayoutConfigService) {
-	}
+	constructor(private layoutConfigService: LayoutConfigService) {}
 
 	/**
 	 * @ Lifecycle sequences => https://angular.io/guide/lifecycle-hooks

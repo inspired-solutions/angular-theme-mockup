@@ -23,8 +23,7 @@ export class QuickActionComponent implements OnInit, AfterViewInit {
 	/**
 	 * Component constructor
 	 */
-	constructor() {
-	}
+	constructor() {}
 
 	/**
 	 * @ Lifecycle sequences => https://angular.io/guide/lifecycle-hooks
@@ -33,14 +32,12 @@ export class QuickActionComponent implements OnInit, AfterViewInit {
 	/**
 	 * After view init
 	 */
-	ngAfterViewInit(): void {
-	}
+	ngAfterViewInit(): void {}
 
 	/**
 	 * On init
 	 */
-	ngOnInit(): void {
-	}
+	ngOnInit(): void {}
 
 	onSVGInserted(svg) {
 		svg.classList.add('kt-svg-icon', 'kt-svg-icon--success', 'kt-svg-icon--lg');

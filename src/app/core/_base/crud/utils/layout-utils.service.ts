@@ -2,17 +2,18 @@
 import { Injectable } from '@angular/core';
 import { MatSnackBar, MatDialog } from '@angular/material';
 // Partials for CRUD
-import { ActionNotificationComponent,
+import {
+	ActionNotificationComponent,
 	DeleteEntityDialogComponent,
 	FetchEntityDialogComponent,
-	UpdateStatusDialogComponent
+	UpdateStatusDialogComponent,
 } from '../../../../views/partials/content/crud';
 
 export enum MessageType {
 	Create,
 	Read,
 	Update,
-	Delete
+	Delete,
 }
 
 @Injectable()
@@ -23,8 +24,7 @@ export class LayoutUtilsService {
 	 * @param snackBar: MatSnackBar
 	 * @param dialog: MatDialog
 	 */
-	constructor(private snackBar: MatSnackBar,
-		private dialog: MatDialog) { }
+	constructor(private snackBar: MatSnackBar, private dialog: MatDialog) {}
 
 	/**
 	 * Showing (Mat-Snackbar) Notification
@@ -44,7 +44,7 @@ export class LayoutUtilsService {
 		_showCloseButton: boolean = true,
 		_showUndoButton: boolean = true,
 		_undoButtonDuration: number = 3000,
-		_verticalPosition: 'top' | 'bottom' = 'bottom'
+		_verticalPosition: 'top' | 'bottom' = 'bottom',
 	) {
 		const _data = {
 			message: _message,
@@ -54,12 +54,12 @@ export class LayoutUtilsService {
 			undoButtonDuration: _undoButtonDuration,
 			verticalPosition: _verticalPosition,
 			type: _type,
-			action: 'Undo'
+			action: 'Undo',
 		};
 		return this.snackBar.openFromComponent(ActionNotificationComponent, {
 			duration: _duration,
 			data: _data,
-			verticalPosition: _verticalPosition
+			verticalPosition: _verticalPosition,
 		});
 	}
 
@@ -73,7 +73,7 @@ export class LayoutUtilsService {
 	deleteElement(title: string = '', description: string = '', waitDesciption: string = '') {
 		return this.dialog.open(DeleteEntityDialogComponent, {
 			data: { title, description, waitDesciption },
-			width: '440px'
+			width: '440px',
 		});
 	}
 
@@ -85,7 +85,7 @@ export class LayoutUtilsService {
 	fetchElements(_data) {
 		return this.dialog.open(FetchEntityDialogComponent, {
 			data: _data,
-			width: '400px'
+			width: '400px',
 		});
 	}
 
@@ -99,7 +99,7 @@ export class LayoutUtilsService {
 	updateStatusForEntities(title, statuses, messages) {
 		return this.dialog.open(UpdateStatusDialogComponent, {
 			data: { title, statuses, messages },
-			width: '480px'
+			width: '480px',
 		});
 	}
 }

@@ -86,9 +86,7 @@ import { SubheaderComponent } from './subheader/subheader.component';
 
 		ErrorPageComponent,
 	],
-	providers: [
-		HtmlClassService,
-	],
+	providers: [HtmlClassService],
 	imports: [
 		CommonModule,
 		RouterModule,
@@ -110,8 +108,7 @@ import { SubheaderComponent } from './subheader/subheader.component';
 		TranslateModule.forChild(),
 		LoadingBarModule,
 		NgxDaterangepickerMd,
-		InlineSVGModule
-	]
+		InlineSVGModule,
+	],
 })
-export class ThemeModule {
-}
+export class ThemeModule {}

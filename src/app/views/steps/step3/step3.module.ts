@@ -21,16 +21,11 @@ import { Step3Component } from './step3.component';
 		RouterModule.forChild([
 			{
 				path: '',
-				component: Step3Component
+				component: Step3Component,
 			},
 		]),
 	],
 	providers: [],
-	declarations: [
-		Step3Component,
-		Step3FirstComponent,
-		Step3SecondComponent,
-	]
+	declarations: [Step3Component, Step3FirstComponent, Step3SecondComponent],
 })
-export class Step3Module {
-}
+export class Step3Module {}

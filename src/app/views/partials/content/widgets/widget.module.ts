@@ -1,6 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatButtonModule, MatIconModule, MatPaginatorModule, MatProgressSpinnerModule, MatSortModule, MatTableModule, } from '@angular/material';
+import {
+	MatButtonModule,
+	MatIconModule,
+	MatPaginatorModule,
+	MatProgressSpinnerModule,
+	MatSortModule,
+	MatTableModule,
+} from '@angular/material';
 import { CoreModule } from '../../../../core/core.module';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 // Datatable
@@ -47,7 +54,6 @@ import { Timeline2Component } from './timeline2/timeline2.component';
 		MatProgressSpinnerModule,
 		MatPaginatorModule,
 		MatSortModule,
-	]
+	],
 })
-export class WidgetModule {
-}
+export class WidgetModule {}

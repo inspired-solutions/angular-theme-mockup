@@ -13,7 +13,7 @@ import { AuthNoticeService, AuthService } from '../../../../core/auth';
 @Component({
 	selector: 'kt-forgot-password',
 	templateUrl: './forgot-password.component.html',
-	encapsulation: ViewEncapsulation.None
+	encapsulation: ViewEncapsulation.None,
 })
 export class ForgotPasswordComponent implements OnInit, OnDestroy {
 	// Public params
@@ -39,7 +39,7 @@ export class ForgotPasswordComponent implements OnInit, OnDestroy {
 		private translate: TranslateService,
 		private router: Router,
 		private fb: FormBuilder,
-		private cdr: ChangeDetectorRef
+		private cdr: ChangeDetectorRef,
 	) {
 		this.unsubscribe = new Subject();
 	}
@@ -70,13 +70,15 @@ export class ForgotPasswordComponent implements OnInit, OnDestroy {
 	 */
 	initRegistrationForm() {
 		this.forgotPasswordForm = this.fb.group({
-			email: ['', Validators.compose([
-				Validators.required,
-				Validators.email,
-				Validators.minLength(3),
-				Validators.maxLength(320) // https://stackoverflow.com/questions/386294/what-is-the-maximum-length-of-a-valid-email-address
-			])
-			]
+			email: [
+				'',
+				Validators.compose([
+					Validators.required,
+					Validators.email,
+					Validators.minLength(3),
+					Validators.maxLength(320), // https://stackoverflow.com/questions/386294/what-is-the-maximum-length-of-a-valid-email-address
+				]),
+			],
 		});
 	}
 
@@ -87,30 +89,34 @@ export class ForgotPasswordComponent implements OnInit, OnDestroy {
 		const controls = this.forgotPasswordForm.controls;
 		/** check form */
 		if (this.forgotPasswordForm.invalid) {
-			Object.keys(controls).forEach(controlName =>
-				controls[controlName].markAsTouched()
-			);
+			Object.keys(controls).forEach(controlName => controls[controlName].markAsTouched());
 			return;
 		}
 
 		this.loading = true;
 
 		const email = controls['email'].value;
-		this.authService.requestPassword(email).pipe(
-			tap(response => {
-				if (response) {
-					this.authNoticeService.setNotice(this.translate.instant('AUTH.FORGOT.SUCCESS'), 'success');
-					this.router.navigateByUrl('/auth/login');
-				} else {
-					this.authNoticeService.setNotice(this.translate.instant('AUTH.VALIDATION.NOT_FOUND', {name: this.translate.instant('AUTH.INPUT.EMAIL')}), 'danger');
-				}
-			}),
-			takeUntil(this.unsubscribe),
-			finalize(() => {
-				this.loading = false;
-				this.cdr.detectChanges();
-			})
-		).subscribe();
+		this.authService
+			.requestPassword(email)
+			.pipe(
+				tap(response => {
+					if (response) {
+						this.authNoticeService.setNotice(this.translate.instant('AUTH.FORGOT.SUCCESS'), 'success');
+						this.router.navigateByUrl('/auth/login');
+					} else {
+						this.authNoticeService.setNotice(
+							this.translate.instant('AUTH.VALIDATION.NOT_FOUND', { name: this.translate.instant('AUTH.INPUT.EMAIL') }),
+							'danger',
+						);
+					}
+				}),
+				takeUntil(this.unsubscribe),
+				finalize(() => {
+					this.loading = false;
+					this.cdr.detectChanges();
+				}),
+			)
+			.subscribe();
 	}
 
 	/**
@@ -125,9 +131,7 @@ export class ForgotPasswordComponent implements OnInit, OnDestroy {
 			return false;
 		}
 
-		const result =
-			control.hasError(validationType) &&
-			(control.dirty || control.touched);
+		const result = control.hasError(validationType) && (control.dirty || control.touched);
 		return result;
 	}
 }

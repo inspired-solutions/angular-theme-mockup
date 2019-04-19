@@ -19,9 +19,7 @@ export class MenuAsideService {
 	 * @param menuConfigService: MenuConfigService
 	 * @param store: Store<AppState>
 	 */
-	constructor(
-		private menuConfigService: MenuConfigService
-	) {
+	constructor(private menuConfigService: MenuConfigService) {
 		this.loadMenu();
 	}
 

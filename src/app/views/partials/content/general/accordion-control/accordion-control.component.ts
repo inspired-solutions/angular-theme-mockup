@@ -1,5 +1,15 @@
-import { AfterContentChecked, Component, ContentChildren, Directive, EventEmitter, Input, Output, QueryList,
-	TemplateRef, ChangeDetectionStrategy } from '@angular/core';
+import {
+	AfterContentChecked,
+	Component,
+	ContentChildren,
+	Directive,
+	EventEmitter,
+	Input,
+	Output,
+	QueryList,
+	TemplateRef,
+	ChangeDetectionStrategy,
+} from '@angular/core';
 
 let nextId = 0;
 /**
@@ -7,10 +17,10 @@ let nextId = 0;
  */
 @Directive({
 	// tslint:disable-next-line:directive-selector
-	selector: 'ng-template[AccordionControlPanelTitle]'
+	selector: 'ng-template[AccordionControlPanelTitle]',
 })
 export class AccordionControlPanelTitleDirective {
-	constructor(public templateRef: TemplateRef<any>) { }
+	constructor(public templateRef: TemplateRef<any>) {}
 }
 
 /**
@@ -18,10 +28,10 @@ export class AccordionControlPanelTitleDirective {
  */
 @Directive({
 	// tslint:disable-next-line:directive-selector
-	selector: 'ng-template[AccordionControlPanelContent]'
+	selector: 'ng-template[AccordionControlPanelContent]',
 })
 export class AccordionControlPanelContentDirective {
-	constructor(public templateRef: TemplateRef<any>) { }
+	constructor(public templateRef: TemplateRef<any>) {}
 }
 
 /**
@@ -30,7 +40,7 @@ export class AccordionControlPanelContentDirective {
  */
 @Directive({
 	// tslint:disable-next-line:directive-selector
-	selector: 'kt-accordion-control-panel'
+	selector: 'kt-accordion-control-panel',
 })
 export class AccordionControlPanelDirective implements AfterContentChecked {
 	/**
@@ -63,7 +73,6 @@ export class AccordionControlPanelDirective implements AfterContentChecked {
 
 	@Input() hasBodyWrapper: string;
 
-
 	/**
 	 *  Accordion's types of panels to be applied per panel basis.
 	 *  Bootstrap recognizes the following types: "primary", "secondary", "success", "danger", "warning", "info", "light"
@@ -74,9 +83,12 @@ export class AccordionControlPanelDirective implements AfterContentChecked {
 	titleTpl: AccordionControlPanelTitleDirective | null;
 	contentTpl: AccordionControlPanelContentDirective | null;
 
-	@ContentChildren(AccordionControlPanelTitleDirective, { descendants: false }) titleTpls: QueryList<AccordionControlPanelTitleDirective>;
-	@ContentChildren(AccordionControlPanelContentDirective, { descendants: false }) contentTpls:
-		QueryList<AccordionControlPanelContentDirective>;
+	@ContentChildren(AccordionControlPanelTitleDirective, { descendants: false }) titleTpls: QueryList<
+		AccordionControlPanelTitleDirective
+	>;
+	@ContentChildren(AccordionControlPanelContentDirective, { descendants: false }) contentTpls: QueryList<
+		AccordionControlPanelContentDirective
+	>;
 
 	ngAfterContentChecked() {
 		// We are using @ContentChildren instead of @ContantChild as in the Angular version being used
@@ -106,7 +118,6 @@ export interface AccordionControlPanelChangeEvent {
 	preventDefault: () => void;
 }
 
-
 /**
  * The NgbAccordion directive is a collection of panels.
  * It can assure that only one panel can be opened at a time.
@@ -115,20 +126,21 @@ export interface AccordionControlPanelChangeEvent {
 	selector: 'kt-accordion-control',
 	exportAs: 'AccordionControl',
 	host: {
-		'role': 'tablist',
+		role: 'tablist',
 		'[attr.aria-multiselectable]': '!closeOtherPanels',
-		'class': 'accordion'
+		class: 'accordion',
 	},
 	templateUrl: './accordion-control.component.html',
-	styles: [`
-		.accordion--animation {
-			overflow: hidden;
-        	-webkit-transition: height .5s;
-      		transition: height .5s;
-		}
-	`],
-	changeDetection: ChangeDetectionStrategy.OnPush
-
+	styles: [
+		`
+			.accordion--animation {
+				overflow: hidden;
+				-webkit-transition: height 0.5s;
+				transition: height 0.5s;
+			}
+		`,
+	],
+	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AccordionControlComponent implements AfterContentChecked {
 	@ContentChildren(AccordionControlPanelDirective) panels: QueryList<AccordionControlPanelDirective>;
@@ -161,9 +173,7 @@ export class AccordionControlComponent implements AfterContentChecked {
 	 */
 	@Output() panelChange = new EventEmitter<AccordionControlPanelChangeEvent>();
 
-	constructor() {
-
-	}
+	constructor() {}
 
 	/**
 	 * Programmatically toggle a panel with a given id.
@@ -174,11 +184,16 @@ export class AccordionControlComponent implements AfterContentChecked {
 		if (panel && !panel.disabled) {
 			let defaultPrevented = false;
 			if (this.hasAnimation) {
-				panel.height = panel.height  ? 0 : panel.contentHeight;
+				panel.height = panel.height ? 0 : panel.contentHeight;
 			}
 
-			this.panelChange.emit(
-				{ panelId: panelId, nextState: !panel.isOpen, preventDefault: () => { defaultPrevented = true; } });
+			this.panelChange.emit({
+				panelId: panelId,
+				nextState: !panel.isOpen,
+				preventDefault: () => {
+					defaultPrevented = true;
+				},
+			});
 
 			if (!defaultPrevented) {
 				panel.isOpen = !panel.isOpen;
@@ -239,4 +254,3 @@ export class AccordionControlComponent implements AfterContentChecked {
 		this.activeIds = this.panels.filter(panel => panel.isOpen && !panel.disabled).map(panel => panel.id);
 	}
 }
-

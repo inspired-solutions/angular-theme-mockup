@@ -8,9 +8,9 @@ const routes: Routes = [
 	// leave the path value empty to enter into nested router in ThemeModule
 	// {path: '', loadChildren: 'app/views/themes/default/theme.module#ThemeModule'},
 
-	{path: '', redirectTo: 'steps', pathMatch: 'full'},
-	{path: 'steps', loadChildren: 'app/views/themes/steps/theme.module#ThemeModule'},
-	{path: '**', redirectTo: 'steps/error/403', pathMatch: 'full'},
+	{ path: '', redirectTo: 'steps', pathMatch: 'full' },
+	{ path: 'steps', loadChildren: 'app/views/themes/steps/theme.module#ThemeModule' },
+	{ path: '**', redirectTo: 'steps/error/403', pathMatch: 'full' },
 	/** START: remove this themes list on production */
 	// list of routers specified by demos, for demo purpose only!
 	// {path: 'default', loadChildren: 'app/views/themes/default/theme.module#ThemeModule'},
@@ -20,10 +20,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-	imports: [
-		RouterModule.forRoot(routes)
-	],
-	exports: [RouterModule]
+	imports: [RouterModule.forRoot(routes)],
+	exports: [RouterModule],
 })
-export class AppRoutingModule {
-}
+export class AppRoutingModule {}

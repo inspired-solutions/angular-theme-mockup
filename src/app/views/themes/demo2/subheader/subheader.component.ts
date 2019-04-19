@@ -17,8 +17,7 @@ export class SubheaderComponent implements OnInit {
 	 *
 	 * @param layoutConfigService: LayoutConfigService
 	 */
-	constructor(private layoutConfigService: LayoutConfigService) {
-	}
+	constructor(private layoutConfigService: LayoutConfigService) {}
 
 	/**
 	 * @ Lifecycle sequences => https://angular.io/guide/lifecycle-hooks

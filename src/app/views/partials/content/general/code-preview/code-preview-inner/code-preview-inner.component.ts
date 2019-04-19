@@ -4,7 +4,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
 	selector: 'kt-code-preview-inner',
-	templateUrl: './code-preview-inner.component.html'
+	templateUrl: './code-preview-inner.component.html',
 })
 export class CodePreviewInnerComponent implements OnInit {
 	// Public properties
@@ -18,8 +18,7 @@ export class CodePreviewInnerComponent implements OnInit {
 	 *
 	 * @param sanitizer sanitizer
 	 */
-	constructor(private sanitizer: DomSanitizer) {
-	}
+	constructor(private sanitizer: DomSanitizer) {}
 
 	/**
 	 * @ Lifecycle sequences => https://angular.io/guide/lifecycle-hooks
@@ -28,5 +27,5 @@ export class CodePreviewInnerComponent implements OnInit {
 	/**
 	 * On init
 	 */
-	ngOnInit() { }
+	ngOnInit() {}
 }

@@ -11,7 +11,7 @@ import { AuthNoticeService } from '../../../core/auth';
 	selector: 'kt-auth',
 	templateUrl: './auth.component.html',
 	styleUrls: ['./auth.component.scss'],
-	encapsulation: ViewEncapsulation.None
+	encapsulation: ViewEncapsulation.None,
 })
 export class AuthComponent implements OnInit {
 	// Public properties
@@ -30,8 +30,8 @@ export class AuthComponent implements OnInit {
 		private layoutConfigService: LayoutConfigService,
 		public authNoticeService: AuthNoticeService,
 		private translationService: TranslationService,
-		private splashScreenService: SplashScreenService) {
-	}
+		private splashScreenService: SplashScreenService,
+	) {}
 
 	/**
 	 * @ Lifecycle sequences => https://angular.io/guide/lifecycle-hooks

@@ -4,7 +4,7 @@ import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 @Component({
 	selector: 'kt-code-preview',
 	templateUrl: './code-preview.component.html',
-	changeDetection: ChangeDetectionStrategy.OnPush
+	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CodePreviewComponent {
 	// Public properites

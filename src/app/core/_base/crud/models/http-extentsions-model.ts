@@ -3,7 +3,6 @@ import { QueryParamsModel } from './query-models/query-params.model';
 import { QueryResultsModel } from './query-models/query-results.model';
 
 export class HttpExtenstionsModel {
-
 	/**
 	 * Filtration with sorting
 	 * First do Sort then filter
@@ -93,13 +92,19 @@ export class HttpExtenstionsModel {
 		});
 
 		Object.keys(_queryObj).forEach(key => {
-			const searchText = _queryObj[key].toString().trim().toLowerCase();
+			const searchText = _queryObj[key]
+				.toString()
+				.trim()
+				.toLowerCase();
 			if (key && !_filtrationFields.some(e => e === key) && searchText) {
 				doSearch = true;
 				try {
 					_incomingArray.forEach((element, index) => {
 						if (element[key]) {
-							const _val = element[key].toString().trim().toLowerCase();
+							const _val = element[key]
+								.toString()
+								.trim()
+								.toLowerCase();
 							if (_val.indexOf(searchText) > -1 && indexes.indexOf(index) === -1) {
 								indexes.push(index);
 							}
