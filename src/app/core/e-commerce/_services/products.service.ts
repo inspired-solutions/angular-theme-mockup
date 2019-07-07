@@ -14,8 +14,7 @@ const API_PRODUCTS_URL = 'api/products';
 export class ProductsService {
 	lastFilter$: BehaviorSubject<QueryParamsModel> = new BehaviorSubject(new QueryParamsModel({}, 'asc', '', 0, 10));
 
-	constructor(private http: HttpClient,
-		private httpUtils: HttpUtilsService) { }
+	constructor(private http: HttpClient, private httpUtils: HttpUtilsService) {}
 
 	// CREATE =>  POST: add a new product to the server
 	createProduct(product): Observable<ProductModel> {
@@ -34,15 +33,15 @@ export class ProductsService {
 
 	// Server should return filtered/sorted result
 	findProducts(queryParams: QueryParamsModel): Observable<QueryResultsModel> {
-			// Note: Add headers if needed (tokens/bearer)
-			const httpHeaders = this.httpUtils.getHTTPHeaders();
-			const httpParams = this.httpUtils.getFindHTTPParams(queryParams);
+		// Note: Add headers if needed (tokens/bearer)
+		const httpHeaders = this.httpUtils.getHTTPHeaders();
+		const httpParams = this.httpUtils.getFindHTTPParams(queryParams);
 
-			const url = API_PRODUCTS_URL + '/find';
-			return this.http.get<QueryResultsModel>(url, {
-				headers: httpHeaders,
-				params:  httpParams
-			});
+		const url = API_PRODUCTS_URL + '/find';
+		return this.http.get<QueryResultsModel>(url, {
+			headers: httpHeaders,
+			params: httpParams,
+		});
 	}
 
 	// UPDATE => PUT: update the product on the server
@@ -59,7 +58,7 @@ export class ProductsService {
 		const httpHeaders = this.httpUtils.getHTTPHeaders();
 		const body = {
 			productsForUpdate: products,
-			newStatus: status
+			newStatus: status,
 		};
 		const url = API_PRODUCTS_URL + '/updateStatus';
 		return this.http.put(url, body, { headers: httpHeaders });
@@ -75,6 +74,6 @@ export class ProductsService {
 		const url = API_PRODUCTS_URL + '/delete';
 		const httpHeaders = this.httpUtils.getHTTPHeaders();
 		const body = { prdocutIdsForDelete: ids };
-		return this.http.put<QueryResultsModel>(url, body, { headers: httpHeaders} );
+		return this.http.put<QueryResultsModel>(url, body, { headers: httpHeaders });
 	}
 }

@@ -16,50 +16,34 @@ const API_PRODUCTREMARKS_URL = 'api/productRemarks';
 // This code emulates server calls
 @Injectable()
 export class ProductRemarksService {
-	constructor(
-		private http: HttpClient,
-		private httpUtils: HttpUtilsService
-	) {}
+	constructor(private http: HttpClient, private httpUtils: HttpUtilsService) {}
 
 	// CREATE =>  POST: add a new product remark to the server
 	createProductRemark(productRemark): Observable<ProductRemarkModel> {
 		// Note: Add headers if needed (tokens/bearer)
 		const httpHeaders = this.httpUtils.getHTTPHeaders();
-		return this.http.post<ProductRemarkModel>(
-			API_PRODUCTREMARKS_URL,
-			productRemark,
-			{ headers: httpHeaders }
-		);
+		return this.http.post<ProductRemarkModel>(API_PRODUCTREMARKS_URL, productRemark, { headers: httpHeaders });
 	}
 
 	// READ
-	getAllProductRemarksByProductId(
-		productId: number
-	): Observable<ProductRemarkModel[]> {
-		return this.http
-			.get<ProductRemarkModel[]>(API_PRODUCTREMARKS_URL)
-			.pipe(
-				map(productRemarks => {
-					return productRemarks.filter(rem => rem.carId === productId);
-				})
-			);
-	}
-
-	getProductRemarkById(productRemarkId: number): Observable<ProductRemarkModel> {
-		return this.http.get<ProductRemarkModel>(
-			API_PRODUCTREMARKS_URL + `/${productRemarkId}`
+	getAllProductRemarksByProductId(productId: number): Observable<ProductRemarkModel[]> {
+		return this.http.get<ProductRemarkModel[]>(API_PRODUCTREMARKS_URL).pipe(
+			map(productRemarks => {
+				return productRemarks.filter(rem => rem.carId === productId);
+			}),
 		);
 	}
 
-	findProductRemarks(
-		queryParams: QueryParamsModel,
-		productId: number
-	): Observable<QueryResultsModel> {
+	getProductRemarkById(productRemarkId: number): Observable<ProductRemarkModel> {
+		return this.http.get<ProductRemarkModel>(API_PRODUCTREMARKS_URL + `/${productRemarkId}`);
+	}
+
+	findProductRemarks(queryParams: QueryParamsModel, productId: number): Observable<QueryResultsModel> {
 		return this.getAllProductRemarksByProductId(productId).pipe(
 			mergeMap(res => {
 				const result = this.httpUtils.baseFilter(res, queryParams, []);
 				return of(result);
-			})
+			}),
 		);
 	}
 
@@ -68,7 +52,7 @@ export class ProductRemarksService {
 		// Note: Add headers if needed (tokens/bearer)
 		const httpHeaders = this.httpUtils.getHTTPHeaders();
 		return this.http.put(API_PRODUCTREMARKS_URL, productRemark, {
-			headers: httpHeaders
+			headers: httpHeaders,
 		});
 	}
 

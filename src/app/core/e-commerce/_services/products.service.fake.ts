@@ -17,8 +17,7 @@ const API_PRODUCTS_URL = 'api/products';
 export class ProductsService {
 	lastFilter$: BehaviorSubject<QueryParamsModel> = new BehaviorSubject(new QueryParamsModel({}, 'asc', '', 0, 10));
 
-	constructor(private http: HttpClient,
-		private httpUtils: HttpUtilsService) { }
+	constructor(private http: HttpClient, private httpUtils: HttpUtilsService) {}
 
 	// CREATE =>  POST: add a new product to the server
 	createProduct(product): Observable<ProductModel> {
@@ -40,7 +39,7 @@ export class ProductsService {
 			mergeMap(res => {
 				const result = this.httpUtils.baseFilter(res, queryParams, ['status', 'condition']);
 				return of(result);
-			})
+			}),
 		);
 	}
 

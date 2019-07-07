@@ -85,9 +85,7 @@ import { PermissionEffects, permissionsReducer, RoleEffects, rolesReducer } from
 
 		ErrorPageComponent,
 	],
-	providers: [
-		HtmlClassService,
-	],
+	providers: [HtmlClassService],
 	imports: [
 		CommonModule,
 		RouterModule,
@@ -109,8 +107,7 @@ import { PermissionEffects, permissionsReducer, RoleEffects, rolesReducer } from
 		TranslateModule.forChild(),
 		LoadingBarModule,
 		NgxDaterangepickerMd,
-		InlineSVGModule
-	]
+		InlineSVGModule,
+	],
 })
-export class ThemeModule {
-}
+export class ThemeModule {}

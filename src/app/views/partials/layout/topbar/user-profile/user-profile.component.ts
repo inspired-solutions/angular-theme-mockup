@@ -21,8 +21,7 @@ export class UserProfileComponent implements OnInit {
 	 *
 	 * @param store: Store<AppState>
 	 */
-	constructor(private store: Store<AppState>) {
-	}
+	constructor(private store: Store<AppState>) {}
 
 	/**
 	 * @ Lifecycle sequences => https://angular.io/guide/lifecycle-hooks

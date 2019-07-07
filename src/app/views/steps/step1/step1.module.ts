@@ -18,14 +18,11 @@ import { Step1Component } from './step1.component';
 		RouterModule.forChild([
 			{
 				path: '',
-				component: Step1Component
+				component: Step1Component,
 			},
 		]),
 	],
 	providers: [],
-	declarations: [
-		Step1Component,
-	]
+	declarations: [Step1Component],
 })
-export class Step1Module {
-}
+export class Step1Module {}

@@ -89,7 +89,10 @@ export class HtmlClassService {
 		if (objectPath.has(this.config, 'self.body.class')) {
 			document.body.classList.add(objectPath.get(this.config, 'self.body.class'));
 		}
-		if (objectPath.get(this.config, 'self.layout') === 'boxed' && objectPath.has(this.config, 'self.body.background-image')) {
+		if (
+			objectPath.get(this.config, 'self.layout') === 'boxed' &&
+			objectPath.has(this.config, 'self.body.background-image')
+		) {
 			document.body.style.backgroundImage = 'url("' + objectPath.get(this.config, 'self.body.background-image') + '")';
 		}
 	}
@@ -97,8 +100,7 @@ export class HtmlClassService {
 	/**
 	 * Init Loader
 	 */
-	private initLoader() {
-	}
+	private initLoader() {}
 
 	/**
 	 * Init Header
@@ -118,7 +120,11 @@ export class HtmlClassService {
 		}
 
 		if (objectPath.get(this.config, 'header.menu.self.layout')) {
-			objectPath.push(this.classes, 'header_menu', 'kt-header-menu--layout-' + objectPath.get(this.config, 'header.menu.self.layout'));
+			objectPath.push(
+				this.classes,
+				'header_menu',
+				'kt-header-menu--layout-' + objectPath.get(this.config, 'header.menu.self.layout'),
+			);
 		}
 	}
 
@@ -165,7 +171,10 @@ export class HtmlClassService {
 
 		// Menu
 		// Dropdown Submenu
-		if (objectPath.get(this.config, 'aside.self.fixed') !== true && objectPath.get(this.config, 'aside.menu.dropdown')) {
+		if (
+			objectPath.get(this.config, 'aside.self.fixed') !== true &&
+			objectPath.get(this.config, 'aside.menu.dropdown')
+		) {
 			objectPath.push(this.classes, 'aside_menu', 'kt-aside-menu--dropdown');
 			// enable menu dropdown
 		}
@@ -181,7 +190,10 @@ export class HtmlClassService {
 		}
 
 		// tslint:disable-next-line:max-line-length
-		if (objectPath.get(this.config, 'aside-secondary.self.expanded') === true && objectPath.get(this.config, 'aside-secondary.self.layout') !== 'layout-2') {
+		if (
+			objectPath.get(this.config, 'aside-secondary.self.expanded') === true &&
+			objectPath.get(this.config, 'aside-secondary.self.layout') !== 'layout-2'
+		) {
 			document.body.classList.add('kt-aside-secondary--expanded');
 		}
 
@@ -193,8 +205,7 @@ export class HtmlClassService {
 	/**
 	 * Init Content
 	 */
-	private initContent() {
-	}
+	private initContent() {}
 
 	/**
 	 * Init Footer

@@ -6,7 +6,7 @@ import { Pipe, PipeTransform, OnDestroy, ChangeDetectorRef, NgZone } from '@angu
  * An Angular pipe for converting a date string into a time ago
  */
 @Pipe({
-	name: 'kTimeElapsed'
+	name: 'kTimeElapsed',
 })
 export class TimeElapsedPipe implements PipeTransform, OnDestroy {
 	// Private properties
@@ -18,10 +18,7 @@ export class TimeElapsedPipe implements PipeTransform, OnDestroy {
 	 * @param changeDetectorRef: ChangeDetectorRef
 	 * @param ngZone: NgZone
 	 */
-	constructor(
-		private changeDetectorRef: ChangeDetectorRef,
-		private ngZone: NgZone
-	) {}
+	constructor(private changeDetectorRef: ChangeDetectorRef, private ngZone: NgZone) {}
 
 	/**
 	 * @ Lifecycle sequences => https://angular.io/guide/lifecycle-hooks
@@ -43,16 +40,12 @@ export class TimeElapsedPipe implements PipeTransform, OnDestroy {
 		this.removeTimer();
 		const d = new Date(value);
 		const now = new Date();
-		const seconds = Math.round(
-			Math.abs((now.getTime() - d.getTime()) / 1000)
-		);
+		const seconds = Math.round(Math.abs((now.getTime() - d.getTime()) / 1000));
 		const timeToUpdate = this.getSecondsUntilUpdate(seconds) * 1000;
 		this.timer = this.ngZone.runOutsideAngular(() => {
 			if (typeof window !== 'undefined') {
 				return window.setTimeout(() => {
-					this.ngZone.run(() =>
-						this.changeDetectorRef.markForCheck()
-					);
+					this.ngZone.run(() => this.changeDetectorRef.markForCheck());
 				}, timeToUpdate);
 			}
 			return null;

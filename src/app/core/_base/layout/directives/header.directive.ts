@@ -23,8 +23,7 @@ export class HeaderDirective implements AfterViewInit {
 	 * Directive Constructor
 	 * @param el: ElementRef
 	 */
-	constructor(private el: ElementRef) {
-	}
+	constructor(private el: ElementRef) {}
 
 	/**
 	 * @ Lifecycle sequences => https://angular.io/guide/lifecycle-hooks

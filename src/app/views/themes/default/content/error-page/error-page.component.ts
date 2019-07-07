@@ -10,7 +10,7 @@ import { LayoutConfigService } from '../../../../../core/_base/layout';
 	selector: 'kt-error-page',
 	templateUrl: './error-page.component.html',
 	styleUrls: ['./error-page.component.scss'],
-	encapsulation: ViewEncapsulation.None
+	encapsulation: ViewEncapsulation.None,
 })
 export class ErrorPageComponent implements OnInit, OnDestroy {
 	// Public properties
@@ -39,7 +39,7 @@ export class ErrorPageComponent implements OnInit, OnDestroy {
 	 */
 	constructor(private route: ActivatedRoute, private layoutConfigService: LayoutConfigService) {
 		// set temporary values to the layout config on this page
-		this.layoutConfigService.setConfig({self: {layout: 'blank'}});
+		this.layoutConfigService.setConfig({ self: { layout: 'blank' } });
 	}
 
 	/**
@@ -109,10 +109,12 @@ export class ErrorPageComponent implements OnInit, OnDestroy {
 					this.title = 'How did you get here';
 				}
 				if (!this.subtitle) {
-					this.subtitle = 'Sorry we can\'t seem to find the page you\'re looking for.';
+					this.subtitle = "Sorry we can't seem to find the page you're looking for.";
 				}
 				if (!this.desc) {
-					this.desc = 'There may be amisspelling in the URL entered,<br>' + 'or the page you are looking for may no longer exist.';
+					this.desc =
+						'There may be amisspelling in the URL entered,<br>' +
+						'or the page you are looking for may no longer exist.';
 				}
 				if (!this.image) {
 					this.image = './assets/media/error/bg3.jpg';
@@ -140,7 +142,10 @@ export class ErrorPageComponent implements OnInit, OnDestroy {
 					this.subtitle = 'Something went wrong here';
 				}
 				if (!this.desc) {
-					this.desc = 'We\'re working on it and we\'ll get it fixed<br>' + 'as soon possible.<br>' + 'You can back or use our Help Center.';
+					this.desc =
+						"We're working on it and we'll get it fixed<br>" +
+						'as soon possible.<br>' +
+						'You can back or use our Help Center.';
 				}
 				if (!this.image) {
 					this.image = './assets/media/error/bg5.jpg';
@@ -151,7 +156,7 @@ export class ErrorPageComponent implements OnInit, OnDestroy {
 					this.title = 'Oops...';
 				}
 				if (!this.desc) {
-					this.desc = 'Looks like something went wrong.<br>' + 'We\'re working on it';
+					this.desc = 'Looks like something went wrong.<br>' + "We're working on it";
 				}
 				if (!this.image) {
 					this.image = './assets/media/error/bg6.jpg';

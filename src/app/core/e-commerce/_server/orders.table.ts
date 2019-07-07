@@ -8,14 +8,14 @@ export class OrdersTable {
 			items: [
 				{
 					product_id: 31,
-					count: 1
+					count: 1,
 				},
 				{
 					product_id: 1,
-					count: 1
-				}
+					count: 1,
+				},
 			],
-			order_status: 'on the way'
+			order_status: 'on the way',
 		},
 		{
 			id: '5055fa9e-3b1a-4668-a63e-4767e9cda711',
@@ -24,14 +24,14 @@ export class OrdersTable {
 			items: [
 				{
 					product_id: 98,
-					count: 2
+					count: 2,
 				},
 				{
 					product_id: 11,
-					count: 1
-				}
+					count: 1,
+				},
 			],
-			order_status: 'on the way'
+			order_status: 'on the way',
 		},
 		{
 			id: '0c06643b-030a-4ea0-92e5-e0177645943d',
@@ -40,14 +40,14 @@ export class OrdersTable {
 			items: [
 				{
 					product_id: 32,
-					count: 1
+					count: 1,
 				},
 				{
 					product_id: 77,
-					count: 1
-				}
+					count: 1,
+				},
 			],
-			order_status: 'sent'
+			order_status: 'sent',
 		},
 		{
 			id: '8bbdbe05-88c6-47f2-b531-65fd9f97d649',
@@ -56,14 +56,14 @@ export class OrdersTable {
 			items: [
 				{
 					product_id: 96,
-					count: 1
+					count: 1,
 				},
 				{
 					product_id: 99,
-					count: 2
-				}
+					count: 2,
+				},
 			],
-			order_status: 'delivered'
+			order_status: 'delivered',
 		},
 		{
 			id: '2af76e30-f9d6-427c-aad4-414908459e7f',
@@ -72,10 +72,10 @@ export class OrdersTable {
 			items: [
 				{
 					product_id: 100,
-					count: 5
-				}
+					count: 5,
+				},
 			],
-			order_status: 'paid'
+			order_status: 'paid',
 		},
 		{
 			id: '7951e68b-e2e9-4cf9-82c4-9e963031b6b7',
@@ -84,18 +84,18 @@ export class OrdersTable {
 			items: [
 				{
 					product_id: 35,
-					count: 1
+					count: 1,
 				},
 				{
 					product_id: 88,
-					count: 1
+					count: 1,
 				},
 				{
 					product_id: 22,
-					count: 1
-				}
+					count: 1,
+				},
 			],
-			order_status: 'delivered'
+			order_status: 'delivered',
 		},
 		{
 			id: '4dc2c379-c7aa-4356-b609-0ca5777b7b8e',
@@ -104,10 +104,10 @@ export class OrdersTable {
 			items: [
 				{
 					product_id: 36,
-					count: 1
-				}
+					count: 1,
+				},
 			],
-			order_status: 'on the way'
+			order_status: 'on the way',
 		},
 		{
 			id: '3eaf04e5-855c-4a57-b781-3edff99ddae5',
@@ -116,10 +116,10 @@ export class OrdersTable {
 			items: [
 				{
 					product_id: 67,
-					count: 1
-				}
+					count: 1,
+				},
 			],
-			order_status: 'on the way'
+			order_status: 'on the way',
 		},
 		{
 			id: '4cca88ef-1a39-48cf-a6ed-290e7e34f756',
@@ -128,10 +128,10 @@ export class OrdersTable {
 			items: [
 				{
 					product_id: 9,
-					count: 1
-				}
+					count: 1,
+				},
 			],
-			order_status: 'sent'
+			order_status: 'sent',
 		},
 		{
 			id: '3cd8e2b8-83ee-4c0d-a4c3-fed313fc836a',
@@ -140,10 +140,10 @@ export class OrdersTable {
 			items: [
 				{
 					product_id: 98,
-					count: 1
-				}
+					count: 1,
+				},
 			],
-			order_status: 'on the way'
+			order_status: 'on the way',
 		},
 		{
 			id: 'da2f7ea8-82aa-474a-a97f-3d75d56d734f',
@@ -152,10 +152,10 @@ export class OrdersTable {
 			items: [
 				{
 					product_id: 3,
-					count: 1
-				}
+					count: 1,
+				},
 			],
-			order_status: 'sent'
+			order_status: 'sent',
 		},
 		{
 			id: 'e674592d-ea7f-40d4-aa2c-ecac4039c81b',
@@ -164,10 +164,10 @@ export class OrdersTable {
 			items: [
 				{
 					product_id: 71,
-					count: 1
-				}
+					count: 1,
+				},
 			],
-			order_status: 'delivered'
-		}
+			order_status: 'delivered',
+		},
 	];
 }

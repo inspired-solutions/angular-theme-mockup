@@ -1,5 +1,5 @@
 // Angular
-import {Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 
 /**
  * Configuration service for the MAccordionControl component.
@@ -9,5 +9,5 @@ import {Injectable} from '@angular/core';
 @Injectable()
 export class AccordionControlConfig {
 	closeOthers = false;
-  type: string;
+	type: string;
 }

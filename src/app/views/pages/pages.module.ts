@@ -12,15 +12,7 @@ import { CoreModule } from '../../core/core.module';
 @NgModule({
 	declarations: [],
 	exports: [],
-	imports: [
-		CommonModule,
-		HttpClientModule,
-		FormsModule,
-		NgbModule,
-		CoreModule,
-		PartialsModule,
-	],
-	providers: []
+	imports: [CommonModule, HttpClientModule, FormsModule, NgbModule, CoreModule, PartialsModule],
+	providers: [],
 })
-export class PagesModule {
-}
+export class PagesModule {}

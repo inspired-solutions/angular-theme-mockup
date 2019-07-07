@@ -1,5 +1,5 @@
 export class DataTableItemModel {
-    id: number;
+	id: number;
 	cModel: string;
 	cManufacture: string;
 	cModelYear: number;
@@ -9,5 +9,5 @@ export class DataTableItemModel {
 	cPrice: number;
 	cCondition: number;
 	cStatus: number;
-    cVINCode: string;
+	cVINCode: string;
 }

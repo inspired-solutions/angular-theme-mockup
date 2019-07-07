@@ -10,13 +10,10 @@ const API_ORDERS_URL = 'api/orders';
 export class OrdersService {
 	httpOptions = this.httpUtils.getHTTPHeaders();
 
-	constructor(private http: HttpClient,
-		private httpUtils: HttpUtilsService) { }
+	constructor(private http: HttpClient, private httpUtils: HttpUtilsService) {}
 
 	// CREATE
 	// READ
 	// UPDATE
 	// DELETE
 }
-
-

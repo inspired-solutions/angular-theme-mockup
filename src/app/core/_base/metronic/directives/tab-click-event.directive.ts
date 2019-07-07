@@ -4,7 +4,7 @@ import { Directive, ElementRef, HostListener, Renderer2 } from '@angular/core';
  * Listen Tab click
  */
 @Directive({
-	selector: '[ktTabClickEvent]'
+	selector: '[ktTabClickEvent]',
 })
 export class TabClickEventDirective {
 	/**
@@ -12,7 +12,7 @@ export class TabClickEventDirective {
 	 * @param el: ElementRef
 	 * @param render: Renderer2
 	 */
-	constructor(private el: ElementRef, private render: Renderer2) { }
+	constructor(private el: ElementRef, private render: Renderer2) {}
 
 	/**
 	 * A directive handler the tab click event for active tab

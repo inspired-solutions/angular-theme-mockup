@@ -18,13 +18,13 @@ import { AuthNoticeService, AuthService, Login } from '../../../../core/auth';
  */
 const DEMO_PARAMS = {
 	EMAIL: 'admin@demo.com',
-	PASSWORD: 'demo'
+	PASSWORD: 'demo',
 };
 
 @Component({
 	selector: 'kt-login',
 	templateUrl: './login.component.html',
-	encapsulation: ViewEncapsulation.None
+	encapsulation: ViewEncapsulation.None,
 })
 export class LoginComponent implements OnInit, OnDestroy {
 	// Public params
@@ -53,7 +53,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 		private translate: TranslateService,
 		private store: Store<AppState>,
 		private fb: FormBuilder,
-		private cdr: ChangeDetectorRef
+		private cdr: ChangeDetectorRef,
 	) {
 		this.unsubscribe = new Subject();
 	}
@@ -93,19 +93,19 @@ export class LoginComponent implements OnInit, OnDestroy {
 		}
 
 		this.loginForm = this.fb.group({
-			email: [DEMO_PARAMS.EMAIL, Validators.compose([
-				Validators.required,
-				Validators.email,
-				Validators.minLength(3),
-				Validators.maxLength(320) // https://stackoverflow.com/questions/386294/what-is-the-maximum-length-of-a-valid-email-address
-			])
+			email: [
+				DEMO_PARAMS.EMAIL,
+				Validators.compose([
+					Validators.required,
+					Validators.email,
+					Validators.minLength(3),
+					Validators.maxLength(320), // https://stackoverflow.com/questions/386294/what-is-the-maximum-length-of-a-valid-email-address
+				]),
 			],
-			password: [DEMO_PARAMS.PASSWORD, Validators.compose([
-				Validators.required,
-				Validators.minLength(3),
-				Validators.maxLength(100)
-			])
-			]
+			password: [
+				DEMO_PARAMS.PASSWORD,
+				Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(100)]),
+			],
 		});
 	}
 
@@ -116,9 +116,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 		const controls = this.loginForm.controls;
 		/** check form */
 		if (this.loginForm.invalid) {
-			Object.keys(controls).forEach(controlName =>
-				controls[controlName].markAsTouched()
-			);
+			Object.keys(controls).forEach(controlName => controls[controlName].markAsTouched());
 			return;
 		}
 
@@ -126,14 +124,14 @@ export class LoginComponent implements OnInit, OnDestroy {
 
 		const authData = {
 			email: controls['email'].value,
-			password: controls['password'].value
+			password: controls['password'].value,
 		};
 		this.auth
 			.login(authData.email, authData.password)
 			.pipe(
 				tap(user => {
 					if (user) {
-						this.store.dispatch(new Login({authToken: user.accessToken}));
+						this.store.dispatch(new Login({ authToken: user.accessToken }));
 						this.router.navigateByUrl('/'); // Main page
 					} else {
 						this.authNoticeService.setNotice(this.translate.instant('AUTH.VALIDATION.INVALID_LOGIN'), 'danger');
@@ -143,7 +141,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 				finalize(() => {
 					this.loading = false;
 					this.cdr.detectChanges();
-				})
+				}),
 			)
 			.subscribe();
 	}

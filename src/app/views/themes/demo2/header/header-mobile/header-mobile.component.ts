@@ -8,7 +8,7 @@ import { LayoutConfigService } from '../../../../../core/_base/layout';
 @Component({
 	selector: 'kt-header-mobile',
 	templateUrl: './header-mobile.component.html',
-	styleUrls: ['./header-mobile.component.scss']
+	styleUrls: ['./header-mobile.component.scss'],
 })
 export class HeaderMobileComponent implements OnInit {
 	// Public properties
@@ -18,7 +18,7 @@ export class HeaderMobileComponent implements OnInit {
 	toggleOptions: ToggleOptions = {
 		target: 'body',
 		targetState: 'kt-header__topbar--mobile-on',
-		togglerState: 'kt-header-mobile__toolbar-topbar-toggler--active'
+		togglerState: 'kt-header-mobile__toolbar-topbar-toggler--active',
 	};
 
 	/**
@@ -26,8 +26,7 @@ export class HeaderMobileComponent implements OnInit {
 	 *
 	 * @param layoutConfigService: LayoutConfigService
 	 */
-	constructor(private layoutConfigService: LayoutConfigService) {
-	}
+	constructor(private layoutConfigService: LayoutConfigService) {}
 
 	/**
 	 * @ Lifecycle sequences => https://angular.io/guide/lifecycle-hooks

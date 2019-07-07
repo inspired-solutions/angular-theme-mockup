@@ -15,8 +15,7 @@ export class FooterComponent implements OnInit {
 	 *
 	 * @param layoutConfigService: LayouConfigService
 	 */
-	constructor(private layoutConfigService: LayoutConfigService) {
-	}
+	constructor(private layoutConfigService: LayoutConfigService) {}
 
 	/**
 	 * @ Lifecycle sequences => https://angular.io/guide/lifecycle-hooks

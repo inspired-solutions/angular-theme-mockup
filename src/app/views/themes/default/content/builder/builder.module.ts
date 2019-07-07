@@ -30,12 +30,11 @@ import { BuilderComponent } from './builder.component';
 		RouterModule.forChild([
 			{
 				path: '',
-				component: BuilderComponent
-			}
-		])
+				component: BuilderComponent,
+			},
+		]),
 	],
 	providers: [],
-	declarations: [BuilderComponent]
+	declarations: [BuilderComponent],
 })
-export class BuilderModule {
-}
+export class BuilderModule {}

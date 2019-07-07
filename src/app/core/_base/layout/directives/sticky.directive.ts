@@ -1,4 +1,16 @@
-import { AfterViewInit, Directive, ElementRef, HostBinding, HostListener, Inject, Input, isDevMode, OnDestroy, OnInit, PLATFORM_ID } from '@angular/core';
+import {
+	AfterViewInit,
+	Directive,
+	ElementRef,
+	HostBinding,
+	HostListener,
+	Inject,
+	Input,
+	isDevMode,
+	OnDestroy,
+	OnInit,
+	PLATFORM_ID,
+} from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { BehaviorSubject, combineLatest, Observable, Subject } from 'rxjs';
 import { animationFrame } from 'rxjs/internal/scheduler/animationFrame';
@@ -22,10 +34,9 @@ export interface StickyStatus {
 }
 
 @Directive({
-	selector: '[ktSticky]'
+	selector: '[ktSticky]',
 })
 export class StickyDirective implements OnInit, AfterViewInit, OnDestroy {
-
 	filterGate = false;
 	marginTop$ = new BehaviorSubject(0);
 	marginBottom$ = new BehaviorSubject(0);
@@ -47,24 +58,20 @@ export class StickyDirective implements OnInit, AfterViewInit, OnDestroy {
 	private componentDestroyed = new Subject<void>();
 
 	constructor(private stickyElement: ElementRef, @Inject(PLATFORM_ID) private platformId: string) {
-
 		/** Throttle the scroll to animation frame (around 16.67ms) */
-		this.scrollThrottled$ = this.scroll$
-			.pipe(
-				throttleTime(0, animationFrame),
-				map(() => window.pageYOffset),
-				share()
-			);
+		this.scrollThrottled$ = this.scroll$.pipe(
+			throttleTime(0, animationFrame),
+			map(() => window.pageYOffset),
+			share(),
+		);
 
 		/** Throttle the resize to animation frame (around 16.67ms) */
-		this.resizeThrottled$ = this.resize$
-			.pipe(
-				throttleTime(0, animationFrame),
-				// emit once since we are currently using combineLatest
-				startWith(null),
-				share()
-			);
-
+		this.resizeThrottled$ = this.resize$.pipe(
+			throttleTime(0, animationFrame),
+			// emit once since we are currently using combineLatest
+			startWith(null),
+			share(),
+		);
 
 		this.status$ = combineLatest(
 			this.enable$,
@@ -73,13 +80,13 @@ export class StickyDirective implements OnInit, AfterViewInit, OnDestroy {
 			this.marginBottom$,
 			this.extraordinaryChange$,
 			this.resizeThrottled$,
-		)
-			.pipe(
-				filter(([enabled]) => this.checkEnabled(enabled)),
-				map(([enabled, pageYOffset, marginTop, marginBottom]) => this.determineStatus(this.determineElementOffsets(), pageYOffset, marginTop, marginBottom, enabled)),
-				share(),
-			);
-
+		).pipe(
+			filter(([enabled]) => this.checkEnabled(enabled)),
+			map(([enabled, pageYOffset, marginTop, marginBottom]) =>
+				this.determineStatus(this.determineElementOffsets(), pageYOffset, marginTop, marginBottom, enabled),
+			),
+			share(),
+		);
 	}
 
 	@Input() set marginTop(value: number) {
@@ -95,9 +102,7 @@ export class StickyDirective implements OnInit, AfterViewInit, OnDestroy {
 	}
 
 	ngAfterViewInit(): void {
-		this.status$
-			.pipe(takeUntil(this.componentDestroyed))
-			.subscribe((status) => this.setSticky(status));
+		this.status$.pipe(takeUntil(this.componentDestroyed)).subscribe(status => this.setSticky(status));
 	}
 
 	public recalculate(): void {
@@ -144,7 +149,6 @@ export class StickyDirective implements OnInit, AfterViewInit, OnDestroy {
 	 * turns the filter in "filter, but let the first pass".
 	 */
 	private checkEnabled(enabled: boolean): boolean {
-
 		if (!isPlatformBrowser(this.platformId)) {
 			return false;
 		}
@@ -165,13 +169,19 @@ export class StickyDirective implements OnInit, AfterViewInit, OnDestroy {
 				return true;
 			}
 		}
-
-
 	}
 
-	private determineStatus(originalVals: StickyPositions, pageYOffset: number, marginTop: number, marginBottom: number, enabled: boolean): StickyStatus {
+	private determineStatus(
+		originalVals: StickyPositions,
+		pageYOffset: number,
+		marginTop: number,
+		marginBottom: number,
+		enabled: boolean,
+	): StickyStatus {
 		const stickyElementHeight = this.getComputedStyle(this.stickyElement.nativeElement).height;
-		const reachedLowerEdge = this.boundaryElement && window.pageYOffset + stickyElementHeight + marginBottom >= (originalVals.bottomBoundary - marginTop);
+		const reachedLowerEdge =
+			this.boundaryElement &&
+			window.pageYOffset + stickyElementHeight + marginBottom >= originalVals.bottomBoundary - marginTop;
 		return {
 			isSticky: enabled && pageYOffset > originalVals.offsetY,
 			reachedLowerEdge,
@@ -179,7 +189,6 @@ export class StickyDirective implements OnInit, AfterViewInit, OnDestroy {
 			marginTop,
 		};
 	}
-
 
 	/**
 	 * Gets the offset for element. If the element
@@ -200,16 +209,17 @@ export class StickyDirective implements OnInit, AfterViewInit, OnDestroy {
 			bottomBoundary = boundaryElementHeight + boundaryElementOffset;
 		}
 
-		return {offsetY: (getPosition(this.stickyElement.nativeElement).y - this.marginTop$.value), bottomBoundary};
+		return { offsetY: getPosition(this.stickyElement.nativeElement).y - this.marginTop$.value, bottomBoundary };
 	}
 
 	private makeSticky(boundaryReached: boolean = false, marginTop: number, marginBottom: number): void {
-
 		this.boundaryReached = boundaryReached;
 
 		// do this before setting it to pos:fixed
-		const {width, height, left} = this.getComputedStyle(this.stickyElement.nativeElement);
-		const offSet = boundaryReached ? (this.getComputedStyle(this.boundaryElement).bottom - height - this.marginBottom$.value) : this.marginTop$.value;
+		const { width, height, left } = this.getComputedStyle(this.stickyElement.nativeElement);
+		const offSet = boundaryReached
+			? this.getComputedStyle(this.boundaryElement).bottom - height - this.marginBottom$.value
+			: this.marginTop$.value;
 
 		this.sticky = true;
 		this.stickyElement.nativeElement.style.position = 'fixed';
@@ -239,7 +249,6 @@ Then pass the spacer element as input:
 		}
 	}
 
-
 	private setSticky(status: StickyStatus): void {
 		if (status.isSticky) {
 			this.makeSticky(status.reachedLowerEdge, status.marginTop, status.marginBottom);
@@ -249,7 +258,6 @@ Then pass the spacer element as input:
 	}
 
 	private removeSticky(): void {
-
 		this.boundaryReached = false;
 		this.sticky = false;
 

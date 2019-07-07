@@ -59,11 +59,11 @@ export class TypesUtilsService {
 		let stringDate: string = '';
 		if (date) {
 			stringDate += this.isNumber(date.month) ? this.padNumber(date.month) + '/' : '';
-            stringDate += this.isNumber(date.day) ? this.padNumber(date.day) + '/' : '';
+			stringDate += this.isNumber(date.day) ? this.padNumber(date.day) + '/' : '';
 
 			stringDate += date.year;
-        }
-        return stringDate;
+		}
+		return stringDate;
 	}
 
 	/**
@@ -78,8 +78,8 @@ export class TypesUtilsService {
 				{
 					year: this.toInteger(dateParts[2]),
 					month: this.toInteger(dateParts[0]),
-					day: this.toInteger(dateParts[1])
-				}
+					day: this.toInteger(dateParts[1]),
+				},
 			];
 		}
 
@@ -88,8 +88,8 @@ export class TypesUtilsService {
 			{
 				year: _date.getFullYear(),
 				month: _date.getMonth() + 1,
-				day: _date.getDay()
-			}
+				day: _date.getDay(),
+			},
 		];
 	}
 
@@ -114,7 +114,6 @@ export class TypesUtilsService {
 
 		return new Date();
 	}
-
 
 	/**
 	 * Convert Date to string with format 'MM/dd/yyyy'

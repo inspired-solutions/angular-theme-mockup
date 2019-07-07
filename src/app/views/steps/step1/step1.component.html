@@ -1,15 +1,25 @@
 <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--ver kt-page">
-
-	<div class="row">
-		<div class="col">
-
-			<ngb-progressbar type="danger" [value]="100"></ngb-progressbar>
-			<div style="display: flex; flex: 1;">
-
+	<div class="p-step1">
+		<div class="p-step1__step text-right bg-transparent text-light">1/3</div>
+		<div class="card p-step1-content border-0">
+			<ngb-progressbar type="danger" [value]="33"></ngb-progressbar>
+			<div class="card-header border-0 bg-transparent mx-3 mt-5">
+				<h1 class="display-4">
+					Hi Sander!
+				</h1>
 			</div>
-			<h1 class="display-1">
-				Hi Sander!
-			</h1>
+			<div class="card-body mx-3">
+				<h5 class="card-title">
+					Vertel ons hoe we kunnen helpen door aan te geven wat
+					jouw hoofddoel is voor het gebruiken van Zoille
+				</h5>
+				<kt-options [options]="options"></kt-options>
+				<div class="p-step1__input-form">
+					<button type="button" class="btn btn-danger btn-lg rounded-pill"
+						routerLink="/steps/step2">Volgende</button>
+				</div>
+			</div>
 		</div>
 	</div>
+
 </div>

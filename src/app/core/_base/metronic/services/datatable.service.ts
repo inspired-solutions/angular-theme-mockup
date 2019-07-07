@@ -15,7 +15,7 @@ export class DataTableService {
 	 *
 	 * @param http: HttpClient
 	 */
-	constructor(private http: HttpClient) { }
+	constructor(private http: HttpClient) {}
 
 	/**
 	 * Returns data from fake server

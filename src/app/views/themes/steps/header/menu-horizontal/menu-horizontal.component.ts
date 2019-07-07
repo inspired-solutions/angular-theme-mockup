@@ -6,7 +6,12 @@ import { filter } from 'rxjs/operators';
 // Object-Path
 import * as objectPath from 'object-path';
 // Layout
-import { LayoutConfigService, MenuConfigService, MenuHorizontalService, MenuOptions } from '../../../../../core/_base/layout';
+import {
+	LayoutConfigService,
+	MenuConfigService,
+	MenuHorizontalService,
+	MenuOptions,
+} from '../../../../../core/_base/layout';
 // Metronic
 import { OffcanvasOptions } from '../../../../../core/_base/metronic';
 // HTML Class
@@ -28,12 +33,12 @@ export class MenuHorizontalComponent implements OnInit, AfterViewInit {
 		submenu: {
 			desktop: 'dropdown',
 			tablet: 'accordion',
-			mobile: 'accordion'
+			mobile: 'accordion',
 		},
 		accordion: {
 			slideSpeed: 200, // accordion toggle slide speed in milliseconds
-			expandAll: false // allow having multiple expanded accordions in the menu
-		}
+			expandAll: false, // allow having multiple expanded accordions in the menu
+		},
 	};
 
 	offcanvasOptions: OffcanvasOptions = {
@@ -42,8 +47,8 @@ export class MenuHorizontalComponent implements OnInit, AfterViewInit {
 		closeBy: 'kt_header_menu_mobile_close_btn',
 		toggleBy: {
 			target: 'kt_header_mobile_toggler',
-			state: 'kt-header-mobile__toolbar-toggler--active'
-		}
+			state: 'kt-header-mobile__toolbar-toggler--active',
+		},
 	};
 
 	/**
@@ -64,9 +69,8 @@ export class MenuHorizontalComponent implements OnInit, AfterViewInit {
 		private menuConfigService: MenuConfigService,
 		private layoutConfigService: LayoutConfigService,
 		private router: Router,
-		private render: Renderer2
-	) {
-	}
+		private render: Renderer2,
+	) {}
 
 	/**
 	 * @ Lifecycle sequences => https://angular.io/guide/lifecycle-hooks
@@ -75,8 +79,7 @@ export class MenuHorizontalComponent implements OnInit, AfterViewInit {
 	/**
 	 * After view init
 	 */
-	ngAfterViewInit(): void {
-	}
+	ngAfterViewInit(): void {}
 
 	/**
 	 * On init
@@ -85,11 +88,9 @@ export class MenuHorizontalComponent implements OnInit, AfterViewInit {
 		this.rootArrowEnabled = this.layoutConfigService.getConfig('header.menu.self.root-arrow');
 
 		this.currentRouteUrl = this.router.url;
-		this.router.events
-			.pipe(filter(event => event instanceof NavigationEnd))
-			.subscribe(event => {
-				this.currentRouteUrl = this.router.url;
-			});
+		this.router.events.pipe(filter(event => event instanceof NavigationEnd)).subscribe(event => {
+			this.currentRouteUrl = this.router.url;
+		});
 	}
 
 	/**
@@ -116,8 +117,10 @@ export class MenuHorizontalComponent implements OnInit, AfterViewInit {
 		}
 
 		const menuType = objectPath.get(item, 'submenu.type') || 'classic';
-		if ((objectPath.get(item, 'root') && menuType === 'classic')
-			|| parseInt(objectPath.get(item, 'submenu.width'), 10) > 0) {
+		if (
+			(objectPath.get(item, 'root') && menuType === 'classic') ||
+			parseInt(objectPath.get(item, 'submenu.width'), 10) > 0
+		) {
 			classes += ' kt-menu__item--rel';
 		}
 

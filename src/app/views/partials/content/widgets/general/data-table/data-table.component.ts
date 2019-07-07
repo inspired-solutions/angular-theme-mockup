@@ -8,21 +8,28 @@ import { merge } from 'rxjs';
 // Crud
 import { QueryParamsModel } from '../../../../../../core/_base/crud';
 // Metronic
-import {
-	DataTableItemModel,
-	DataTableService
-} from '../../../../../../core/_base/metronic';
+import { DataTableItemModel, DataTableService } from '../../../../../../core/_base/metronic';
 import { DataTableDataSource } from './data-table.data-source';
 
 @Component({
 	selector: 'kt-data-table',
 	templateUrl: './data-table.component.html',
-	styleUrls: ['./data-table.component.scss']
+	styleUrls: ['./data-table.component.scss'],
 })
 export class DataTableComponent implements OnInit {
 	// Public properties
 	dataSource: DataTableDataSource;
-	displayedColumns = ['id', 'cManufacture', 'cModel', 'cMileage', 'cColor', 'cPrice', 'cCondition', 'cStatus', 'actions' ];
+	displayedColumns = [
+		'id',
+		'cManufacture',
+		'cModel',
+		'cMileage',
+		'cColor',
+		'cPrice',
+		'cCondition',
+		'cStatus',
+		'actions',
+	];
 	@ViewChild(MatPaginator) paginator: MatPaginator;
 	@ViewChild(MatSort) sort: MatSort;
 	selection = new SelectionModel<DataTableItemModel>(true, []);
@@ -53,7 +60,7 @@ export class DataTableComponent implements OnInit {
 			.pipe(
 				tap(() => {
 					this.loadItems();
-				})
+				}),
 			)
 			.subscribe();
 
@@ -74,7 +81,7 @@ export class DataTableComponent implements OnInit {
 			this.sort.direction,
 			this.sort.active,
 			this.paginator.pageIndex,
-			firstLoad ? 6 : this.paginator.pageSize
+			firstLoad ? 6 : this.paginator.pageSize,
 		);
 		this.dataSource.loadItems(queryParams);
 		this.selection.clear();

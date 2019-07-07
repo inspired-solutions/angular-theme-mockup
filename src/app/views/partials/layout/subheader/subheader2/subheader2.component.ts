@@ -9,7 +9,7 @@ import { Breadcrumb } from '../../../../../core/_base/layout/services/subheader.
 @Component({
 	selector: 'kt-subheader2',
 	templateUrl: './subheader2.component.html',
-	styleUrls: ['./subheader2.component.scss']
+	styleUrls: ['./subheader2.component.scss'],
 })
 export class Subheader2Component implements OnInit, OnDestroy, AfterViewInit {
 	// Public properties
@@ -26,8 +26,7 @@ export class Subheader2Component implements OnInit, OnDestroy, AfterViewInit {
 	 *
 	 * @param subheaderService: SubheaderService
 	 */
-	constructor(public subheaderService: SubheaderService) {
-	}
+	constructor(public subheaderService: SubheaderService) {}
 
 	/**
 	 * @ Lifecycle sequences => https://angular.io/guide/lifecycle-hooks
@@ -36,28 +35,31 @@ export class Subheader2Component implements OnInit, OnDestroy, AfterViewInit {
 	/**
 	 * On init
 	 */
-	ngOnInit() {
-	}
+	ngOnInit() {}
 
 	/**
 	 * After view init
 	 */
 	ngAfterViewInit(): void {
-		this.subscriptions.push(this.subheaderService.title$.subscribe(bt => {
-			// breadcrumbs title sometimes can be undefined
-			if (bt) {
-				Promise.resolve(null).then(() => {
-					this.title = bt.title;
-					this.desc = bt.desc;
-				});
-			}
-		}));
+		this.subscriptions.push(
+			this.subheaderService.title$.subscribe(bt => {
+				// breadcrumbs title sometimes can be undefined
+				if (bt) {
+					Promise.resolve(null).then(() => {
+						this.title = bt.title;
+						this.desc = bt.desc;
+					});
+				}
+			}),
+		);
 
-		this.subscriptions.push(this.subheaderService.breadcrumbs$.subscribe(bc => {
-			Promise.resolve(null).then(() => {
-				this.breadcrumbs = bc;
-			});
-		}));
+		this.subscriptions.push(
+			this.subheaderService.breadcrumbs$.subscribe(bc => {
+				Promise.resolve(null).then(() => {
+					this.breadcrumbs = bc;
+				});
+			}),
+		);
 	}
 
 	/**

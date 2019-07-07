@@ -18,7 +18,7 @@ export interface PortletOptions {
 @Component({
 	selector: 'kt-portlet',
 	templateUrl: './portlet.component.html',
-	exportAs: 'ktPortlet'
+	exportAs: 'ktPortlet',
 })
 export class PortletComponent implements OnInit, AfterViewInit {
 	// Public properties
@@ -44,8 +44,11 @@ export class PortletComponent implements OnInit, AfterViewInit {
 	 * @param loader: LoadingBarService
 	 * @param layoutConfigService: LayoutConfigService
 	 */
-	constructor(private el: ElementRef, public loader: LoadingBarService,
-	            private layoutConfigService: LayoutConfigService) {
+	constructor(
+		private el: ElementRef,
+		public loader: LoadingBarService,
+		private layoutConfigService: LayoutConfigService,
+	) {
 		this.loader.complete();
 	}
 
@@ -56,13 +59,10 @@ export class PortletComponent implements OnInit, AfterViewInit {
 	/**
 	 * On init
 	 */
-	ngOnInit() {
-	}
+	ngOnInit() {}
 
 	/**
 	 * After view init
 	 */
-	ngAfterViewInit() {
-	}
-
+	ngAfterViewInit() {}
 }

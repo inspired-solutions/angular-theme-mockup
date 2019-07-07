@@ -17,13 +17,13 @@ const API_CUSTOMERS_URL = 'api/customers';
 // This code emulates server calls
 @Injectable()
 export class CustomersService {
-	constructor(private http: HttpClient, private httpUtils: HttpUtilsService) { }
+	constructor(private http: HttpClient, private httpUtils: HttpUtilsService) {}
 
 	// CREATE =>  POST: add a new customer to the server
 	createCustomer(customer: CustomerModel): Observable<CustomerModel> {
 		// Note: Add headers if needed (tokens/bearer)
 		const httpHeaders = this.httpUtils.getHTTPHeaders();
-		return this.http.post<CustomerModel>(API_CUSTOMERS_URL, customer, { headers: httpHeaders});
+		return this.http.post<CustomerModel>(API_CUSTOMERS_URL, customer, { headers: httpHeaders });
 	}
 
 	// READ
@@ -44,10 +44,9 @@ export class CustomersService {
 			mergeMap(res => {
 				const result = this.httpUtils.baseFilter(res, queryParams, ['status', 'type']);
 				return of(result);
-			})
+			}),
 		);
 	}
-
 
 	// UPDATE => PUT: update the customer on the server
 	updateCustomer(customer: CustomerModel): Observable<any> {

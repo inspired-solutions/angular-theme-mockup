@@ -12,17 +12,11 @@ import { selectProductsInStore, selectProductsPageLoading } from '../_selectors/
 export class ProductsDataSource extends BaseDataSource {
 	constructor(private store: Store<AppState>) {
 		super();
-		this.loading$ = this.store.pipe(
-			select(selectProductsPageLoading)
-		);
+		this.loading$ = this.store.pipe(select(selectProductsPageLoading));
 
-		this.isPreloadTextViewed$ = this.store.pipe(
-			select(selectProductsInitWaitingMessage)
-		);
+		this.isPreloadTextViewed$ = this.store.pipe(select(selectProductsInitWaitingMessage));
 
-		this.store.pipe(
-			select(selectProductsInStore)
-		).subscribe((response: QueryResultsModel) => {
+		this.store.pipe(select(selectProductsInStore)).subscribe((response: QueryResultsModel) => {
 			this.paginatorTotalSubject.next(response.totalCount);
 			this.entitySubject.next(response.items);
 		});

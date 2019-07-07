@@ -10,7 +10,7 @@ import { Subscription } from 'rxjs';
  *
  */
 @Directive({
-	selector: '[ktContentAnimate]'
+	selector: '[ktContentAnimate]',
 })
 export class ContentAnimateDirective implements OnInit, OnDestroy {
 	// Public properties
@@ -24,11 +24,7 @@ export class ContentAnimateDirective implements OnInit, OnDestroy {
 	 * @param router: Router
 	 * @param animationBuilder: AnimationBuilder
 	 */
-	constructor(
-		private el: ElementRef,
-		private router: Router,
-		private animationBuilder: AnimationBuilder) {
-	}
+	constructor(private el: ElementRef, private router: Router, private animationBuilder: AnimationBuilder) {}
 
 	/**
 	 * @ Lifecycle sequences => https://angular.io/guide/lifecycle-hooks
@@ -68,12 +64,9 @@ export class ContentAnimateDirective implements OnInit, OnDestroy {
 				style({
 					transform: 'translateY(-3%)',
 					opacity: 0,
-					position: 'static'
+					position: 'static',
 				}),
-				animate(
-					'0.5s ease-in-out',
-					style({transform: 'translateY(0%)', opacity: 1})
-				)
+				animate('0.5s ease-in-out', style({ transform: 'translateY(0%)', opacity: 1 })),
 			])
 			.create(this.el.nativeElement);
 	}

@@ -6,7 +6,7 @@ import { OffcanvasOptions } from '../../../../core/_base/metronic';
 @Component({
 	selector: 'kt-quick-panel',
 	templateUrl: './quick-panel.component.html',
-	styleUrls: ['./quick-panel.component.scss']
+	styleUrls: ['./quick-panel.component.scss'],
 })
 export class QuickPanelComponent {
 	// Public properties
@@ -14,6 +14,6 @@ export class QuickPanelComponent {
 		overlay: true,
 		baseClass: 'kt-quick-panel',
 		closeBy: 'kt_quick_panel_close_btn',
-		toggleBy: 'kt_quick_panel_toggler_btn'
+		toggleBy: 'kt_quick_panel_toggler_btn',
 	};
 }

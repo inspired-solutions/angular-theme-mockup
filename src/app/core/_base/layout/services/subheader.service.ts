@@ -23,7 +23,7 @@ export interface BreadcrumbTitle {
 @Injectable()
 export class SubheaderService {
 	// Public properties
-	title$: BehaviorSubject<BreadcrumbTitle> = new BehaviorSubject<BreadcrumbTitle>({title: '', desc: ''});
+	title$: BehaviorSubject<BreadcrumbTitle> = new BehaviorSubject<BreadcrumbTitle>({ title: '', desc: '' });
 	breadcrumbs$: BehaviorSubject<Breadcrumb[]> = new BehaviorSubject<Breadcrumb[]>([]);
 	disabled$: Subject<boolean> = new Subject<boolean>();
 
@@ -46,7 +46,8 @@ export class SubheaderService {
 	constructor(
 		private router: Router,
 		private pageConfigService: PageConfigService,
-		private menuConfigService: MenuConfigService) {
+		private menuConfigService: MenuConfigService,
+	) {
 		const initBreadcrumb = () => {
 			// get updated title current page config
 			this.pageConfig = this.pageConfigService.getCurrentPageConfig();
@@ -84,9 +85,7 @@ export class SubheaderService {
 		initBreadcrumb();
 
 		// subscribe to router events
-		this.router.events
-			.pipe(filter(event => event instanceof NavigationEnd))
-			.subscribe(initBreadcrumb);
+		this.router.events.pipe(filter(event => event instanceof NavigationEnd)).subscribe(initBreadcrumb);
 	}
 
 	/**
@@ -105,7 +104,8 @@ export class SubheaderService {
 			// if breadcrumb has only 1 item
 			breadcrumbs.length === 1 &&
 			// and breadcrumb title is same as current page title
-			breadcrumbs[0].title.indexOf(objectPath.get(this.pageConfig, 'page.title')) !== -1) {
+			breadcrumbs[0].title.indexOf(objectPath.get(this.pageConfig, 'page.title')) !== -1
+		) {
 			// no need to display on frontend
 			breadcrumbs = [];
 		}
@@ -163,7 +163,7 @@ export class SubheaderService {
 	 */
 	setTitle(title: string) {
 		this.manualTitle[this.router.url] = title;
-		this.title$.next({title: title});
+		this.title$.next({ title: title });
 	}
 
 	/**
@@ -179,7 +179,7 @@ export class SubheaderService {
 		const path = [];
 		let found = false;
 
-		const search = (haystack) => {
+		const search = haystack => {
 			// tslint:disable-next-line:forin
 			for (const key in haystack) {
 				path.push(key);

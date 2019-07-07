@@ -1,0 +1,9 @@
+<div class="option-container">
+	<div class="option border rounded-lg p-3 my-3" *ngFor="let option of options"
+		(click)="onSelectOption(option)"
+		[class.option--selected]="option===currentOption"
+		[class.option--dense]="dense"
+	>
+		<strong>{{option.name}}</strong>
+	</div>
+</div>

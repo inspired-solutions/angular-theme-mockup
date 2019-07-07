@@ -1,6 +1,6 @@
 // Angular
 import { Injectable } from '@angular/core';
-import { HttpClient} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 // RxJS
 import { Observable, forkJoin } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -14,7 +14,7 @@ const API_PRODUCTSPECS_URL = 'api/productSpecs';
 // Real REST API
 @Injectable()
 export class ProductSpecificationsService {
-	constructor(private http: HttpClient, private httpUtils: HttpUtilsService) { }
+	constructor(private http: HttpClient, private httpUtils: HttpUtilsService) {}
 
 	// CREATE =>  POST: add a new product specification to the server
 	createProductSpec(productSpec): Observable<ProductSpecificationModel> {
@@ -40,7 +40,7 @@ export class ProductSpecificationsService {
 		// Note: Add headers if needed (tokens/bearer)
 		const httpHeaders = this.httpUtils.getHTTPHeaders();
 		const body = {
-			state: queryParams
+			state: queryParams,
 		};
 		return this.http.post<QueryResultsModel>(url, body, { headers: httpHeaders });
 	}
@@ -60,7 +60,7 @@ export class ProductSpecificationsService {
 		const url = API_PRODUCTSPECS_URL + '/deleteProductSpecifications';
 		const httpHeaders = this.httpUtils.getHTTPHeaders();
 		const body = { productSpecificationIdsForDelete: ids };
-		return this.http.put<any>(url, body, { headers: httpHeaders} );
+		return this.http.put<any>(url, body, { headers: httpHeaders });
 	}
 
 	getSpecs(): string[] {

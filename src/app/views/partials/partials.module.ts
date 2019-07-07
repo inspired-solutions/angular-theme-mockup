@@ -23,7 +23,7 @@ import {
 	MatSortModule,
 	MatTableModule,
 	MatTabsModule,
-	MatTooltipModule
+	MatTooltipModule,
 } from '@angular/material';
 // NgBootstrap
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -32,7 +32,13 @@ import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 // Core module
 import { CoreModule } from '../../core/core.module';
 // CRUD Partials
-import { ActionNotificationComponent, AlertComponent, DeleteEntityDialogComponent, FetchEntityDialogComponent, UpdateStatusDialogComponent } from './content/crud';
+import {
+	ActionNotificationComponent,
+	AlertComponent,
+	DeleteEntityDialogComponent,
+	FetchEntityDialogComponent,
+	UpdateStatusDialogComponent,
+} from './content/crud';
 // Layout partials
 import {
 	ContextMenu2Component,
@@ -63,6 +69,7 @@ import { WidgetModule } from './content/widgets/widget.module';
 // SVG inline
 import { InlineSVGModule } from 'ng-inline-svg';
 import { CartComponent } from './layout/topbar/cart/cart.component';
+import { OptionsComponent } from '../steps/components/options/options.component';
 
 @NgModule({
 	declarations: [
@@ -95,6 +102,7 @@ import { CartComponent } from './layout/topbar/cart/cart.component';
 		CartComponent,
 
 		ErrorComponent,
+		OptionsComponent,
 	],
 	exports: [
 		WidgetModule,
@@ -127,8 +135,8 @@ import { CartComponent } from './layout/topbar/cart/cart.component';
 		UserProfileComponent,
 		UserProfile2Component,
 		CartComponent,
-
 		ErrorComponent,
+		OptionsComponent,
 	],
 	imports: [
 		CommonModule,
@@ -161,7 +169,6 @@ import { CartComponent } from './layout/topbar/cart/cart.component';
 		MatTabsModule,
 		MatTooltipModule,
 		MatDialogModule,
-	]
+	],
 })
-export class PartialsModule {
-}
+export class PartialsModule {}

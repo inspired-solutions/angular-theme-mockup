@@ -1,6 +1,6 @@
 import { BaseModel } from '../../_base/crud';
 
-export class CustomerModel  extends BaseModel {
+export class CustomerModel extends BaseModel {
 	id: number;
 	firstName: string;
 	lastName: string;

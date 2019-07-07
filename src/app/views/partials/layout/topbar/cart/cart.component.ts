@@ -4,7 +4,7 @@ import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
 @Component({
 	selector: 'kt-cart',
 	templateUrl: './cart.component.html',
-	styleUrls: ['./cart.component.scss']
+	styleUrls: ['./cart.component.scss'],
 })
 export class CartComponent implements OnInit, AfterViewInit {
 	// Public properties
@@ -21,8 +21,7 @@ export class CartComponent implements OnInit, AfterViewInit {
 	/**
 	 * Component constructor
 	 */
-	constructor() {
-	}
+	constructor() {}
 
 	/**
 	 * @ Lifecycle sequences => https://angular.io/guide/lifecycle-hooks
@@ -31,12 +30,10 @@ export class CartComponent implements OnInit, AfterViewInit {
 	/**
 	 * After view init
 	 */
-	ngAfterViewInit(): void {
-	}
+	ngAfterViewInit(): void {}
 
 	/**
 	 * On init
 	 */
-	ngOnInit(): void {
-	}
+	ngOnInit(): void {}
 }

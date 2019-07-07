@@ -17,65 +17,64 @@ export { ProductsDataSource } from './_data-sources/products.datasource';
 // Actions
 // Customer Actions =>
 export {
-    CustomerActionTypes,
-    CustomerActions,
-    CustomerOnServerCreated,
-    CustomerCreated,
-    CustomerUpdated,
-    CustomersStatusUpdated,
-    OneCustomerDeleted,
-    ManyCustomersDeleted,
-    CustomersPageRequested,
-    CustomersPageLoaded,
-    CustomersPageCancelled,
-    CustomersPageToggleLoading
+	CustomerActionTypes,
+	CustomerActions,
+	CustomerOnServerCreated,
+	CustomerCreated,
+	CustomerUpdated,
+	CustomersStatusUpdated,
+	OneCustomerDeleted,
+	ManyCustomersDeleted,
+	CustomersPageRequested,
+	CustomersPageLoaded,
+	CustomersPageCancelled,
+	CustomersPageToggleLoading,
 } from './_actions/customer.actions';
 // Product actions =>
 export {
-    ProductActionTypes,
-    ProductActions,
-    ProductOnServerCreated,
-    ProductCreated,
-    ProductUpdated,
-    ProductsStatusUpdated,
-    OneProductDeleted,
-    ManyProductsDeleted,
-    ProductsPageRequested,
-    ProductsPageLoaded,
-    ProductsPageCancelled,
-    ProductsPageToggleLoading,
-    ProductsActionToggleLoading
+	ProductActionTypes,
+	ProductActions,
+	ProductOnServerCreated,
+	ProductCreated,
+	ProductUpdated,
+	ProductsStatusUpdated,
+	OneProductDeleted,
+	ManyProductsDeleted,
+	ProductsPageRequested,
+	ProductsPageLoaded,
+	ProductsPageCancelled,
+	ProductsPageToggleLoading,
+	ProductsActionToggleLoading,
 } from './_actions/product.actions';
 // ProductRemark Actions =>
 export {
-    ProductRemarkActionTypes,
-    ProductRemarkActions,
-    ProductRemarkCreated,
-    ProductRemarkUpdated,
-    ProductRemarkStoreUpdated,
-    OneProductRemarkDeleted,
-    ManyProductRemarksDeleted,
-    ProductRemarksPageRequested,
-    ProductRemarksPageLoaded,
-    ProductRemarksPageCancelled,
-    ProductRemarksPageToggleLoading,
-    ProductRemarkOnServerCreated
+	ProductRemarkActionTypes,
+	ProductRemarkActions,
+	ProductRemarkCreated,
+	ProductRemarkUpdated,
+	ProductRemarkStoreUpdated,
+	OneProductRemarkDeleted,
+	ManyProductRemarksDeleted,
+	ProductRemarksPageRequested,
+	ProductRemarksPageLoaded,
+	ProductRemarksPageCancelled,
+	ProductRemarksPageToggleLoading,
+	ProductRemarkOnServerCreated,
 } from './_actions/product-remark.actions';
 // ProductSpecification Actions =>
 export {
-    ProductSpecificationActionTypes,
-    ProductSpecificationActions,
-    ProductSpecificationCreated,
-    ProductSpecificationUpdated,
-    OneProductSpecificationDeleted,
-    ManyProductSpecificationsDeleted,
-    ProductSpecificationsPageRequested,
-    ProductSpecificationsPageLoaded,
-    ProductSpecificationsPageCancelled,
-    ProductSpecificationsPageToggleLoading,
-    ProductSpecificationOnServerCreated
+	ProductSpecificationActionTypes,
+	ProductSpecificationActions,
+	ProductSpecificationCreated,
+	ProductSpecificationUpdated,
+	OneProductSpecificationDeleted,
+	ManyProductSpecificationsDeleted,
+	ProductSpecificationsPageRequested,
+	ProductSpecificationsPageLoaded,
+	ProductSpecificationsPageCancelled,
+	ProductSpecificationsPageToggleLoading,
+	ProductSpecificationOnServerCreated,
 } from './_actions/product-specification.actions';
-
 
 // Effects
 export { CustomerEffects } from './_effects/customer.effects';
@@ -92,42 +91,42 @@ export { productSpecificationsReducer } from './_reducers/product-specification.
 // Selectors
 // Customer selectors =>
 export {
-    selectCustomerById,
-    selectCustomersInStore,
-    selectCustomersPageLoading,
-    selectLastCreatedCustomerId,
-    selectCustomersActionLoading,
-    selectCustomersShowInitWaitingMessage
+	selectCustomerById,
+	selectCustomersInStore,
+	selectCustomersPageLoading,
+	selectLastCreatedCustomerId,
+	selectCustomersActionLoading,
+	selectCustomersShowInitWaitingMessage,
 } from './_selectors/customer.selectors';
 // Product selectors
 export {
-    selectProductById,
-    selectProductsInStore,
-    selectProductsPageLoading,
-    selectProductsPageLastQuery,
-    selectLastCreatedProductId,
-    selectHasProductsInStore,
-    selectProductsActionLoading,
-    selectProductsInitWaitingMessage
+	selectProductById,
+	selectProductsInStore,
+	selectProductsPageLoading,
+	selectProductsPageLastQuery,
+	selectLastCreatedProductId,
+	selectHasProductsInStore,
+	selectProductsActionLoading,
+	selectProductsInitWaitingMessage,
 } from './_selectors/product.selectors';
 // ProductRemark selectors =>
 export {
-    selectProductRemarkById,
-    selectProductRemarksInStore,
-    selectProductRemarksPageLoading,
-    selectCurrentProductIdInStoreForProductRemarks,
-    selectLastCreatedProductRemarkId,
-    selectPRShowInitWaitingMessage
+	selectProductRemarkById,
+	selectProductRemarksInStore,
+	selectProductRemarksPageLoading,
+	selectCurrentProductIdInStoreForProductRemarks,
+	selectLastCreatedProductRemarkId,
+	selectPRShowInitWaitingMessage,
 } from './_selectors/product-remark.selectors';
 // ProductSpecification selectors =>
 export {
-    selectProductSpecificationById,
-    selectProductSpecificationsInStore,
-    selectProductSpecificationsPageLoading,
-    selectCurrentProductIdInStoreForProductSpecs,
-    selectProductSpecificationsState,
-    selectLastCreatedProductSpecificationId,
-    selectPSShowInitWaitingMessage
+	selectProductSpecificationById,
+	selectProductSpecificationsInStore,
+	selectProductSpecificationsPageLoading,
+	selectCurrentProductIdInStoreForProductSpecs,
+	selectProductSpecificationsState,
+	selectLastCreatedProductSpecificationId,
+	selectPSShowInitWaitingMessage,
 } from './_selectors/product-specification.selectors';
 
 // Services

@@ -5,10 +5,9 @@ import { DomSanitizer } from '@angular/platform-browser';
 @Component({
 	selector: 'kt-notification',
 	templateUrl: './notification.component.html',
-	styleUrls: ['notification.component.scss']
+	styleUrls: ['notification.component.scss'],
 })
 export class NotificationComponent {
-
 	// Show dot on top of the icon
 	@Input() dot: boolean;
 
@@ -32,6 +31,5 @@ export class NotificationComponent {
 	 *
 	 * @param sanitizer: DomSanitizer
 	 */
-	constructor(private sanitizer: DomSanitizer) {
-	}
+	constructor(private sanitizer: DomSanitizer) {}
 }

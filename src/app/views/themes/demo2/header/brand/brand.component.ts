@@ -18,7 +18,7 @@ export class BrandComponent implements OnInit, AfterViewInit {
 	toggleOptions: ToggleOptions = {
 		target: 'body',
 		targetState: 'kt-aside--minimize',
-		togglerState: 'kt-aside__brand-aside-toggler--active'
+		togglerState: 'kt-aside__brand-aside-toggler--active',
 	};
 
 	/**
@@ -27,8 +27,7 @@ export class BrandComponent implements OnInit, AfterViewInit {
 	 * @param layoutConfigService: LayoutConfigService
 	 * @param htmlClassService: HtmlClassService
 	 */
-	constructor(private layoutConfigService: LayoutConfigService, public htmlClassService: HtmlClassService) {
-	}
+	constructor(private layoutConfigService: LayoutConfigService, public htmlClassService: HtmlClassService) {}
 
 	/**
 	 * @ Lifecycle sequences => https://angular.io/guide/lifecycle-hooks
@@ -45,6 +44,5 @@ export class BrandComponent implements OnInit, AfterViewInit {
 	/**
 	 * On destroy
 	 */
-	ngAfterViewInit(): void {
-	}
+	ngAfterViewInit(): void {}
 }

@@ -12,13 +12,13 @@ const API_CUSTOMERS_URL = 'api/customers';
 
 @Injectable()
 export class CustomersService {
-	constructor(private http: HttpClient, private httpUtils: HttpUtilsService) { }
+	constructor(private http: HttpClient, private httpUtils: HttpUtilsService) {}
 
 	// CREATE =>  POST: add a new customer to the server
 	createCustomer(customer: CustomerModel): Observable<CustomerModel> {
 		// Note: Add headers if needed (tokens/bearer)
 		const httpHeaders = this.httpUtils.getHTTPHeaders();
-		return this.http.post<CustomerModel>(API_CUSTOMERS_URL, customer, { headers: httpHeaders});
+		return this.http.post<CustomerModel>(API_CUSTOMERS_URL, customer, { headers: httpHeaders });
 	}
 
 	// READ
@@ -41,7 +41,7 @@ export class CustomersService {
 		const url = API_CUSTOMERS_URL + '/find';
 		return this.http.get<QueryResultsModel>(url, {
 			headers: httpHeaders,
-			params:  httpParams
+			params: httpParams,
 		});
 	}
 
@@ -56,7 +56,7 @@ export class CustomersService {
 		const httpHeaders = this.httpUtils.getHTTPHeaders();
 		const body = {
 			customersForUpdate: customers,
-			newStatus: status
+			newStatus: status,
 		};
 		const url = API_CUSTOMERS_URL + '/updateStatus';
 		return this.http.put(url, body, { headers: httpHeaders });
@@ -72,6 +72,6 @@ export class CustomersService {
 		const url = API_CUSTOMERS_URL + '/deleteCustomers';
 		const httpHeaders = this.httpUtils.getHTTPHeaders();
 		const body = { customerIdsForDelete: ids };
-		return this.http.put<QueryResultsModel>(url, body, { headers: httpHeaders} );
+		return this.http.put<QueryResultsModel>(url, body, { headers: httpHeaders });
 	}
 }

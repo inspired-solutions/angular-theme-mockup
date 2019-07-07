@@ -17,14 +17,14 @@ export class UsersTable {
 				addressLine: 'L-12-20 Vertex, Cybersquare',
 				city: 'San Francisco',
 				state: 'California',
-				postCode: '45000'
+				postCode: '45000',
 			},
 			socialNetworks: {
 				linkedIn: 'https://linkedin.com/admin',
 				facebook: 'https://facebook.com/admin',
 				twitter: 'https://twitter.com/admin',
-				instagram: 'https://instagram.com/admin'
-			}
+				instagram: 'https://instagram.com/admin',
+			},
 		},
 		{
 			id: 2,
@@ -43,16 +43,16 @@ export class UsersTable {
 				addressLine: '3487  Ingram Road',
 				city: 'Greensboro',
 				state: 'North Carolina',
-				postCode: '27409'
+				postCode: '27409',
 			},
 			socialNetworks: {
 				linkedIn: 'https://linkedin.com/user',
 				facebook: 'https://facebook.com/user',
 				twitter: 'https://twitter.com/user',
-				instagram: 'https://instagram.com/user'
-			}
-        },
-        {
+				instagram: 'https://instagram.com/user',
+			},
+		},
+		{
 			id: 3,
 			username: 'guest',
 			password: 'demo',
@@ -69,22 +69,22 @@ export class UsersTable {
 				addressLine: '1467  Griffin Street',
 				city: 'Phoenix',
 				state: 'Arizona',
-				postCode: '85012'
+				postCode: '85012',
 			},
 			socialNetworks: {
 				linkedIn: 'https://linkedin.com/guest',
 				facebook: 'https://facebook.com/guest',
 				twitter: 'https://twitter.com/guest',
-				instagram: 'https://instagram.com/guest'
-			}
-		}
+				instagram: 'https://instagram.com/guest',
+			},
+		},
 	];
 
 	public static tokens: any = [
 		{
 			id: 1,
 			accessToken: 'access-token-' + Math.random(),
-			refreshToken: 'access-token-' + Math.random()
-		}
+			refreshToken: 'access-token-' + Math.random(),
+		},
 	];
 }

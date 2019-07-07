@@ -5,15 +5,13 @@ import { FormControl } from '@angular/forms';
 
 @Component({
 	selector: 'kt-update-status-dialog',
-	templateUrl: './update-status-dialog.component.html'
+	templateUrl: './update-status-dialog.component.html',
 })
 export class UpdateStatusDialogComponent implements OnInit {
 	selectedStatusForUpdate = new FormControl('');
 	viewLoading: boolean = false;
 	loadingAfterSubmit: boolean = false;
-	constructor(
-		public dialogRef: MatDialogRef<UpdateStatusDialogComponent>,
-		@Inject(MAT_DIALOG_DATA) public data: any) {}
+	constructor(public dialogRef: MatDialogRef<UpdateStatusDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: any) {}
 
 	ngOnInit() {
 		/* Server loading imitation. Remove this */

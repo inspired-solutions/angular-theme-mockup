@@ -8,8 +8,7 @@ import { of } from 'rxjs';
 @Component({
 	selector: 'kt-action-natification',
 	templateUrl: './action-notification.component.html',
-	changeDetection: ChangeDetectionStrategy.Default
-
+	changeDetection: ChangeDetectionStrategy.Default,
 })
 export class ActionNotificationComponent implements OnInit {
 	/**
@@ -17,7 +16,7 @@ export class ActionNotificationComponent implements OnInit {
 	 *
 	 * @param data: any
 	 */
-	constructor(@Inject(MAT_SNACK_BAR_DATA) public data: any) { }
+	constructor(@Inject(MAT_SNACK_BAR_DATA) public data: any) {}
 
 	/**
 	 * @ Lifecycle sequences => https://angular.io/guide/lifecycle-hooks
@@ -27,7 +26,7 @@ export class ActionNotificationComponent implements OnInit {
 	 * On init
 	 */
 	ngOnInit() {
-		if (!this.data.showUndoButton || (this.data.undoButtonDuration >= this.data.duration)) {
+		if (!this.data.showUndoButton || this.data.undoButtonDuration >= this.data.duration) {
 			return;
 		}
 
@@ -55,7 +54,7 @@ export class ActionNotificationComponent implements OnInit {
 	/**
 	 * Dismiss
 	 */
-  	public onDismiss() {
+	public onDismiss() {
 		this.data.snackBar.dismiss();
 	}
 }

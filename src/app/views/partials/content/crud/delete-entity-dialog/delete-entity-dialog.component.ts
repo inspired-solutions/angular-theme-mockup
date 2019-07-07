@@ -4,7 +4,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 @Component({
 	selector: 'kt-delete-entity-dialog',
-	templateUrl: './delete-entity-dialog.component.html'
+	templateUrl: './delete-entity-dialog.component.html',
 })
 export class DeleteEntityDialogComponent implements OnInit {
 	// Public properties
@@ -16,10 +16,7 @@ export class DeleteEntityDialogComponent implements OnInit {
 	 * @param dialogRef: MatDialogRef<DeleteEntityDialogComponent>
 	 * @param data: any
 	 */
-	constructor(
-		public dialogRef: MatDialogRef<DeleteEntityDialogComponent>,
-		@Inject(MAT_DIALOG_DATA) public data: any
-	) { }
+	constructor(public dialogRef: MatDialogRef<DeleteEntityDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: any) {}
 
 	/**
 	 * @ Lifecycle sequences => https://angular.io/guide/lifecycle-hooks
@@ -28,8 +25,7 @@ export class DeleteEntityDialogComponent implements OnInit {
 	/**
 	 * On init
 	 */
-	ngOnInit() {
-	}
+	ngOnInit() {}
 
 	/**
 	 * Close dialog with false result

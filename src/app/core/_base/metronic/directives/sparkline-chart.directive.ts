@@ -21,7 +21,7 @@ export interface SparklineChartOptions {
  */
 @Directive({
 	selector: '[ktSparklineChart]',
-	exportAs: 'ktSparklineChart'
+	exportAs: 'ktSparklineChart',
 })
 export class SparklineChartDirective implements AfterViewInit {
 	// Public properties
@@ -35,8 +35,7 @@ export class SparklineChartDirective implements AfterViewInit {
 	 * @param el: ElementRef
 	 * @param layoutConfigService: LayoutConfigService
 	 */
-	constructor(private el: ElementRef, private layoutConfigService: LayoutConfigService) {
-	}
+	constructor(private el: ElementRef, private layoutConfigService: LayoutConfigService) {}
 
 	/**
 	 * @ Lifecycle sequences => https://angular.io/guide/lifecycle-hooks
@@ -46,7 +45,14 @@ export class SparklineChartDirective implements AfterViewInit {
 	 * After view init
 	 */
 	ngAfterViewInit(): void {
-		this.initChart(this.el.nativeElement, this.options.data, this.options.color, this.options.border, this.options.fill, this.options.tooltip);
+		this.initChart(
+			this.el.nativeElement,
+			this.options.data,
+			this.options.color,
+			this.options.border,
+			this.options.fill,
+			this.options.tooltip,
+		);
 	}
 
 	/**
@@ -64,27 +70,38 @@ export class SparklineChartDirective implements AfterViewInit {
 		}
 
 		// set default values
-		fill = (typeof fill !== 'undefined') ? fill : false;
-		tooltip = (typeof tooltip !== 'undefined') ? tooltip : false;
+		fill = typeof fill !== 'undefined' ? fill : false;
+		tooltip = typeof tooltip !== 'undefined' ? tooltip : false;
 
 		const config = {
 			type: 'line',
 			data: {
 				labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October'],
-				datasets: [{
-					label: '',
-					borderColor: color,
-					borderWidth: border,
+				datasets: [
+					{
+						label: '',
+						borderColor: color,
+						borderWidth: border,
 
-					pointHoverRadius: 4,
-					pointHoverBorderWidth: 12,
-					pointBackgroundColor: Chart.helpers.color('#000000').alpha(0).rgbString(),
-					pointBorderColor: Chart.helpers.color('#000000').alpha(0).rgbString(),
-					pointHoverBackgroundColor: this.layoutConfigService.getConfig('colors.state.danger'),
-					pointHoverBorderColor: Chart.helpers.color('#000000').alpha(0.1).rgbString(),
-					fill: false,
-					data: data,
-				}]
+						pointHoverRadius: 4,
+						pointHoverBorderWidth: 12,
+						pointBackgroundColor: Chart.helpers
+							.color('#000000')
+							.alpha(0)
+							.rgbString(),
+						pointBorderColor: Chart.helpers
+							.color('#000000')
+							.alpha(0)
+							.rgbString(),
+						pointHoverBackgroundColor: this.layoutConfigService.getConfig('colors.state.danger'),
+						pointHoverBorderColor: Chart.helpers
+							.color('#000000')
+							.alpha(0.1)
+							.rgbString(),
+						fill: false,
+						data: data,
+					},
+				],
 			},
 			options: {
 				title: {
@@ -96,45 +113,49 @@ export class SparklineChartDirective implements AfterViewInit {
 					mode: 'nearest',
 					xPadding: 10,
 					yPadding: 10,
-					caretPadding: 10
+					caretPadding: 10,
 				},
 				legend: {
 					display: false,
 					labels: {
-						usePointStyle: false
-					}
+						usePointStyle: false,
+					},
 				},
 				responsive: true,
 				maintainAspectRatio: true,
 				hover: {
-					mode: 'index'
+					mode: 'index',
 				},
 				scales: {
-					xAxes: [{
-						display: false,
-						gridLines: false,
-						scaleLabel: {
-							display: true,
-							labelString: 'Month'
-						}
-					}],
-					yAxes: [{
-						display: false,
-						gridLines: false,
-						scaleLabel: {
-							display: true,
-							labelString: 'Value'
+					xAxes: [
+						{
+							display: false,
+							gridLines: false,
+							scaleLabel: {
+								display: true,
+								labelString: 'Month',
+							},
 						},
-						ticks: {
-							beginAtZero: true
-						}
-					}]
+					],
+					yAxes: [
+						{
+							display: false,
+							gridLines: false,
+							scaleLabel: {
+								display: true,
+								labelString: 'Value',
+							},
+							ticks: {
+								beginAtZero: true,
+							},
+						},
+					],
 				},
 
 				elements: {
 					point: {
 						radius: 4,
-						borderWidth: 12
+						borderWidth: 12,
 					},
 				},
 
@@ -143,10 +164,10 @@ export class SparklineChartDirective implements AfterViewInit {
 						left: 0,
 						right: 10,
 						top: 5,
-						bottom: 0
-					}
-				}
-			}
+						bottom: 0,
+					},
+				},
+			},
 		};
 
 		this.chart = new Chart(src, config);

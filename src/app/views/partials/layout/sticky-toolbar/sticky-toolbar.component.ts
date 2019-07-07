@@ -6,7 +6,7 @@ import { OffcanvasOptions } from '../../../../core/_base/metronic';
 @Component({
 	selector: 'kt-sticky-toolbar',
 	templateUrl: './sticky-toolbar.component.html',
-	styleUrls: ['./sticky-toolbar.component.scss']
+	styleUrls: ['./sticky-toolbar.component.scss'],
 })
 export class StickyToolbarComponent {
 	// Public properties
@@ -14,7 +14,7 @@ export class StickyToolbarComponent {
 		overlay: true,
 		baseClass: 'kt-demo-panel',
 		closeBy: 'kt_demo_panel_close',
-		toggleBy: 'kt_demo_panel_toggle'
+		toggleBy: 'kt_demo_panel_toggle',
 	};
 
 	baseHref: string;

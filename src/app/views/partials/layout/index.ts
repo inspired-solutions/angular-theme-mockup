@@ -21,6 +21,5 @@ export { SearchDropdownComponent } from './topbar/search-dropdown/search-dropdow
 export { UserProfileComponent } from './topbar/user-profile/user-profile.component';
 export { UserProfile2Component } from './topbar/user-profile2/user-profile2.component';
 
-
 // Models
 export { ISearchResult } from './search-result/search-result.component';

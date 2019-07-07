@@ -1,4 +1,12 @@
-import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
+import {
+	AfterViewInit,
+	ChangeDetectionStrategy,
+	Component,
+	ElementRef,
+	OnInit,
+	Renderer2,
+	ViewChild,
+} from '@angular/core';
 import { filter } from 'rxjs/operators';
 import { NavigationEnd, Router } from '@angular/router';
 import * as objectPath from 'object-path';
@@ -10,10 +18,9 @@ import { HtmlClassService } from '../html-class.service';
 	selector: 'kt-aside-left',
 	templateUrl: './aside-left.component.html',
 	styleUrls: ['./aside-left.component.scss'],
-	changeDetection: ChangeDetectionStrategy.OnPush
+	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AsideLeftComponent implements OnInit, AfterViewInit {
-
 	@ViewChild('asideMenu') asideMenu: ElementRef;
 
 	currentRouteUrl: string = '';
@@ -26,8 +33,8 @@ export class AsideLeftComponent implements OnInit, AfterViewInit {
 		closeBy: 'kt_aside_close_btn',
 		toggleBy: {
 			target: 'kt_aside_mobile_toggler',
-			state: 'kt-header-mobile__toolbar-toggler--active'
-		}
+			state: 'kt-header-mobile__toolbar-toggler--active',
+		},
 	};
 
 	menuOptions: MenuOptions = {
@@ -41,13 +48,13 @@ export class AsideLeftComponent implements OnInit, AfterViewInit {
 				default: 'dropdown',
 			},
 			tablet: 'accordion', // menu set to accordion in tablet mode
-			mobile: 'accordion' // menu set to accordion in mobile mode
+			mobile: 'accordion', // menu set to accordion in mobile mode
 		},
 
 		// accordion setup
 		accordion: {
-			expandAll: false // allow having multiple expanded accordions in the menu
-		}
+			expandAll: false, // allow having multiple expanded accordions in the menu
+		},
 	};
 
 	constructor(
@@ -55,19 +62,17 @@ export class AsideLeftComponent implements OnInit, AfterViewInit {
 		public menuAsideService: MenuAsideService,
 		public layoutConfigService: LayoutConfigService,
 		private router: Router,
-		private render: Renderer2
-	) {
-	}
+		private render: Renderer2,
+	) {}
 
-	ngAfterViewInit(): void {
-	}
+	ngAfterViewInit(): void {}
 
 	ngOnInit() {
 		this.currentRouteUrl = this.router.url.split(/[?#]/)[0];
 
 		this.router.events
 			.pipe(filter(event => event instanceof NavigationEnd))
-			.subscribe(event => this.currentRouteUrl = this.router.url.split(/[?#]/)[0]);
+			.subscribe(event => (this.currentRouteUrl = this.router.url.split(/[?#]/)[0]));
 
 		const config = this.layoutConfigService.getConfig();
 
@@ -78,7 +83,11 @@ export class AsideLeftComponent implements OnInit, AfterViewInit {
 		if (objectPath.get(config, 'aside.menu.dropdown')) {
 			this.render.setAttribute(this.asideMenu.nativeElement, 'data-ktmenu-dropdown', '1');
 			// tslint:disable-next-line:max-line-length
-			this.render.setAttribute(this.asideMenu.nativeElement, 'data-ktmenu-dropdown-timeout', objectPath.get(config, 'aside.menu.submenu.dropdown.hover-timeout'));
+			this.render.setAttribute(
+				this.asideMenu.nativeElement,
+				'data-ktmenu-dropdown-timeout',
+				objectPath.get(config, 'aside.menu.submenu.dropdown.hover-timeout'),
+			);
 		}
 	}
 

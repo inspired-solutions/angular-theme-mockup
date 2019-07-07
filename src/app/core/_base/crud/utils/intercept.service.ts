@@ -12,10 +12,7 @@ import { debug } from 'util';
 @Injectable()
 export class InterceptService implements HttpInterceptor {
 	// intercept request and add token
-	intercept(
-		request: HttpRequest<any>,
-		next: HttpHandler
-	): Observable<HttpEvent<any>> {
+	intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 		// tslint:disable-next-line:no-debugger
 		// modify request
 		// request = request.clone({
@@ -30,7 +27,7 @@ export class InterceptService implements HttpInterceptor {
 		return next.handle(request).pipe(
 			tap(
 				event => {
-					 if (event instanceof HttpResponse) {
+					if (event instanceof HttpResponse) {
 						// console.log('all looks good');
 						// http response status code
 						// console.log(event.status);
@@ -44,8 +41,8 @@ export class InterceptService implements HttpInterceptor {
 					console.error(error.status);
 					console.error(error.message);
 					// console.log('--- end of response---');
-				}
-			)
+				},
+			),
 		);
 	}
 }

@@ -24,24 +24,14 @@ export class ProductSpecificationsService {
 	createProductSpec(productSpec): Observable<ProductSpecificationModel> {
 		// Note: Add headers if needed (tokens/bearer)
 		const httpHeaders = this.httpUtils.getHTTPHeaders();
-		return this.http.post<ProductSpecificationModel>(
-			API_PRODUCTSPECS_URL,
-			productSpec,
-			{ headers: httpHeaders }
-		);
+		return this.http.post<ProductSpecificationModel>(API_PRODUCTSPECS_URL, productSpec, { headers: httpHeaders });
 	}
 
 	// READ
-	getAllProductSpecsByProductId(
-		productId: number
-	): Observable<ProductSpecificationModel[]> {
+	getAllProductSpecsByProductId(productId: number): Observable<ProductSpecificationModel[]> {
 		const prodSpecs = this.http
 			.get<ProductSpecificationModel[]>(API_PRODUCTSPECS_URL)
-			.pipe(
-				map(productSpecifications =>
-					productSpecifications.filter(ps => ps.carId === productId)
-				)
-			);
+			.pipe(map(productSpecifications => productSpecifications.filter(ps => ps.carId === productId)));
 
 		return prodSpecs.pipe(
 			map(res => {
@@ -56,35 +46,27 @@ export class ProductSpecificationsService {
 					result.push(_item);
 				});
 				return result;
-			})
+			}),
 		);
 	}
 
 	getProductSpecById(productSpecId: number): Observable<ProductSpecificationModel> {
-		return this.http.get<ProductSpecificationModel>(
-			API_PRODUCTSPECS_URL + `/${productSpecId}`
-		);
+		return this.http.get<ProductSpecificationModel>(API_PRODUCTSPECS_URL + `/${productSpecId}`);
 	}
 
-	findProductSpecs(
-		queryParams: QueryParamsModel,
-		productId: number): Observable<QueryResultsModel> {
+	findProductSpecs(queryParams: QueryParamsModel, productId: number): Observable<QueryResultsModel> {
 		return this.getAllProductSpecsByProductId(productId).pipe(
 			mergeMap(res => {
-				const result = this.httpUtils.baseFilter(
-					res,
-					queryParams,
-					[]
-				);
+				const result = this.httpUtils.baseFilter(res, queryParams, []);
 				return of(result);
-			})
+			}),
 		);
 	}
 
 	// UPDATE => PUT: update the product specification on the server
 	updateProductSpec(productSpec: ProductSpecificationModel): Observable<any> {
 		return this.http.put(API_PRODUCTSPECS_URL, productSpec, {
-			headers: this.httpUtils.getHTTPHeaders()
+			headers: this.httpUtils.getHTTPHeaders(),
 		});
 	}
 

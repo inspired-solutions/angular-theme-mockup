@@ -11,7 +11,7 @@ const API_PRODUCTREMARKS_URL = 'api/productRemarks';
 // Real REST API
 @Injectable()
 export class ProductRemarksService {
-	constructor(private http: HttpClient, private httpUtils: HttpUtilsService) { }
+	constructor(private http: HttpClient, private httpUtils: HttpUtilsService) {}
 
 	// CREATE =>  POST: add a new product remark to the server
 	createProductRemark(productRemark): Observable<ProductRemarkModel> {
@@ -37,7 +37,7 @@ export class ProductRemarksService {
 		// Note: Add headers if needed (tokens/bearer)
 		const httpHeaders = this.httpUtils.getHTTPHeaders();
 		const body = {
-			query: queryParams
+			query: queryParams,
 		};
 		return this.http.post<QueryResultsModel>(url, body, { headers: httpHeaders });
 	}
@@ -59,6 +59,6 @@ export class ProductRemarksService {
 		const url = API_PRODUCTREMARKS_URL + '/deleteProductRemarks';
 		const httpHeaders = this.httpUtils.getHTTPHeaders();
 		const body = { productRemarkIdsForDelete: ids };
-		return this.http.put<any>(url, body, { headers: httpHeaders} );
+		return this.http.put<any>(url, body, { headers: httpHeaders });
 	}
 }

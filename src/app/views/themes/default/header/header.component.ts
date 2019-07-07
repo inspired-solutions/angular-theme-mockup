@@ -1,6 +1,13 @@
 // Angular
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { NavigationCancel, NavigationEnd, NavigationStart, RouteConfigLoadEnd, RouteConfigLoadStart, Router } from '@angular/router';
+import {
+	NavigationCancel,
+	NavigationEnd,
+	NavigationStart,
+	RouteConfigLoadEnd,
+	RouteConfigLoadStart,
+	Router,
+} from '@angular/router';
 // Object-Path
 import * as objectPath from 'object-path';
 // Loading bar
@@ -9,7 +16,6 @@ import { LoadingBarService } from '@ngx-loading-bar/core';
 import { LayoutRefService, LayoutConfigService } from '../../../../core/_base/layout';
 // HTML Class Service
 import { HtmlClassService } from '../html-class.service';
-
 
 @Component({
 	selector: 'kt-header',
@@ -35,7 +41,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
 		private layoutRefService: LayoutRefService,
 		private layoutConfigService: LayoutConfigService,
 		public loader: LoadingBarService,
-		public htmlClassService: HtmlClassService
+		public htmlClassService: HtmlClassService,
 	) {
 		// page progress bar percentage
 		this.router.events.subscribe(event => {

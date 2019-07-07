@@ -38,7 +38,6 @@ import { HeaderMobileComponent } from './header/header-mobile/header-mobile.comp
 import { ErrorPageComponent } from './content/error-page/error-page.component';
 import { PermissionEffects, permissionsReducer, RoleEffects, rolesReducer } from '../../../core/auth';
 
-
 @NgModule({
 	declarations: [
 		BaseComponent,
@@ -86,9 +85,7 @@ import { PermissionEffects, permissionsReducer, RoleEffects, rolesReducer } from
 
 		ErrorPageComponent,
 	],
-	providers: [
-		HtmlClassService,
-	],
+	providers: [HtmlClassService],
 	imports: [
 		CommonModule,
 		RouterModule,
@@ -110,8 +107,7 @@ import { PermissionEffects, permissionsReducer, RoleEffects, rolesReducer } from
 		TranslateModule.forChild(),
 		LoadingBarModule,
 		NgxDaterangepickerMd,
-		InlineSVGModule
-	]
+		InlineSVGModule,
+	],
 })
-export class ThemeModule {
-}
+export class ThemeModule {}

@@ -8,27 +8,29 @@ import {
 	AccordionControlComponent,
 	AccordionControlPanelDirective,
 	AccordionControlPanelTitleDirective,
-	AccordionControlPanelContentDirective} from './accordion-control.component';
+	AccordionControlPanelContentDirective,
+} from './accordion-control.component';
 
-export { AccordionControlConfig} from './accordion-control.config';
+export { AccordionControlConfig } from './accordion-control.config';
 export {
-	AccordionControlComponent, AccordionControlPanelDirective, AccordionControlPanelTitleDirective,
-	AccordionControlPanelContentDirective, AccordionControlPanelChangeEvent
+	AccordionControlComponent,
+	AccordionControlPanelDirective,
+	AccordionControlPanelTitleDirective,
+	AccordionControlPanelContentDirective,
+	AccordionControlPanelChangeEvent,
 } from './accordion-control.component';
 
 const ACCORDION_CONTROL_DIRECTIVES = [
 	AccordionControlComponent,
 	AccordionControlPanelDirective,
 	AccordionControlPanelTitleDirective,
-	AccordionControlPanelContentDirective
+	AccordionControlPanelContentDirective,
 ];
 
 @NgModule({
-	imports: [
-		CommonModule
-	],
+	imports: [CommonModule],
 	exports: ACCORDION_CONTROL_DIRECTIVES,
-	declarations: ACCORDION_CONTROL_DIRECTIVES
+	declarations: ACCORDION_CONTROL_DIRECTIVES,
 })
 export class AccordionControlModule {
 	static forRoot(): ModuleWithProviders {

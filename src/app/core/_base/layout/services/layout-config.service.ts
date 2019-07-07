@@ -40,8 +40,7 @@ export class LayoutConfigService {
 		const config = localStorage.getItem('layoutConfig');
 		try {
 			return JSON.parse(config);
-		} catch (e) {
-		}
+		} catch (e) {}
 	}
 
 	/**
@@ -103,8 +102,7 @@ export class LayoutConfigService {
 			try {
 				const logos = objectPath.get(this.layoutConfig, 'self.logo');
 				logo = logos[Object.keys(logos)[0]];
-			} catch (e) {
-			}
+			} catch (e) {}
 		}
 		return logo;
 	}
